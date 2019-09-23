@@ -1,4 +1,4 @@
-/*
+﻿/*
 The MIT License (MIT)
 
 Copyright (c) 2007 - 2019 Microting A/S
@@ -22,22 +22,30 @@ OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
 */
 
-namespace Microting.EformMonitoringBase.Infrastructure.Data.Entities
+namespace Microting.EformMonitoringBase.Infrastructure.Models
 {
-    using System.ComponentModel.DataAnnotations.Schema;
-    using eFormApi.BasePn.Infrastructure.Database.Base;
-    using Enums;
+    using System.Collections.Generic;
 
-    public class NotificationRuleVersion : BaseEntity
+    public class SingleSelectBlock : BaseDataItem
     {
-        public int TemplateId { get; set; }
-        public string Subject { get; set; }
-        public string Text { get; set; }
-        public bool AttachReport { get; set; }
-        public RuleType RuleType { get; set; }
-        public string Data { get; set; }
+        public SingleSelectBlock()
+        {
+            KeyValuePairList = new List<KeyValuePair>();
+        }
 
-        [ForeignKey(nameof(NotificationRule))]
-        public int NotificationRuleId { get; set; }
+        public SingleSelectBlock(
+            int id,
+            string label,
+            string description,
+            List<KeyValuePair> keyValuePairList)
+        {
+            KeyValuePairList = new List<KeyValuePair>();
+            Id = id;
+            Label = label;
+            Description = description;
+            KeyValuePairList = keyValuePairList;
+        }
+
+        public List<KeyValuePair> KeyValuePairList { get; set; }
     }
 }

@@ -29,6 +29,7 @@ namespace Microting.EformMonitoringBase.Infrastructure.Data.Entities
     using Data;
     using eFormApi.BasePn.Infrastructure.Database.Base;
     using eFormShared;
+    using Enums;
     using Microsoft.EntityFrameworkCore;
 
     public class NotificationRule : BaseEntity
@@ -38,6 +39,9 @@ namespace Microting.EformMonitoringBase.Infrastructure.Data.Entities
         public string Text { get; set; }
         public bool AttachReport { get; set; }
 
+        public RuleType RuleType { get; set; }
+        public string Data { get; set; }
+
         public async Task Save(EformMonitoringPnDbContext dbContext)
         {
             NotificationRule rule = new NotificationRule
@@ -46,6 +50,8 @@ namespace Microting.EformMonitoringBase.Infrastructure.Data.Entities
                 AttachReport = AttachReport,
                 Subject = Subject,
                 Text = Text,
+                Data = Data,
+                RuleType = RuleType,
                 CreatedAt = DateTime.UtcNow,
                 UpdatedAt = DateTime.UtcNow,
                 Version = 1,
@@ -77,6 +83,8 @@ namespace Microting.EformMonitoringBase.Infrastructure.Data.Entities
             rule.Subject = Subject;
             rule.Text = Text;
             rule.AttachReport = AttachReport;
+            rule.RuleType = RuleType;
+            rule.Data = Data;
 
             rule.WorkflowState = WorkflowState;
             rule.UpdatedAt = UpdatedAt;
@@ -124,6 +132,8 @@ namespace Microting.EformMonitoringBase.Infrastructure.Data.Entities
                 Subject = item.Subject,
                 Text = item.Text,
                 Version = item.Version,
+                Data = item.Data,
+                RuleType = item.RuleType,
                 NotificationRuleId = item.Id,
                 CreatedAt = item.CreatedAt,
                 UpdatedAt = item.UpdatedAt,

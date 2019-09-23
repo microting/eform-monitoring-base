@@ -1,4 +1,4 @@
-/*
+﻿/*
 The MIT License (MIT)
 
 Copyright (c) 2007 - 2019 Microting A/S
@@ -22,22 +22,24 @@ OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
 */
 
-namespace Microting.EformMonitoringBase.Infrastructure.Data.Entities
+namespace Microting.EformMonitoringBase.Infrastructure.Models
 {
-    using System.ComponentModel.DataAnnotations.Schema;
-    using eFormApi.BasePn.Infrastructure.Database.Base;
-    using Enums;
-
-    public class NotificationRuleVersion : BaseEntity
+    public class KeyValuePair
     {
-        public int TemplateId { get; set; }
-        public string Subject { get; set; }
-        public string Text { get; set; }
-        public bool AttachReport { get; set; }
-        public RuleType RuleType { get; set; }
-        public string Data { get; set; }
+        public KeyValuePair(string key, string value, bool selected, string displayOrder)
+        {
+            Key = key;
+            Value = value;
+            Selected = selected;
+            DisplayOrder = displayOrder;
+        }
 
-        [ForeignKey(nameof(NotificationRule))]
-        public int NotificationRuleId { get; set; }
+        public string Key { get; set; }
+
+        public string Value { get; set; }
+
+        public bool Selected { get; set; }
+
+        public string DisplayOrder { get; set; }
     }
 }
