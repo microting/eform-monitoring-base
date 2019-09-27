@@ -25,6 +25,7 @@ SOFTWARE.
 namespace Microting.EformMonitoringBase.Infrastructure.Data.Entities
 {
     using System;
+    using System.Collections.Generic;
     using System.Threading.Tasks;
     using Data;
     using eFormApi.BasePn.Infrastructure.Database.Base;
@@ -42,6 +43,9 @@ namespace Microting.EformMonitoringBase.Infrastructure.Data.Entities
         public RuleType RuleType { get; set; }
         public int DataItemId { get; set; }
         public string Data { get; set; }
+
+        public List<Recipient> Recipients { get; set; }
+            = new List<Recipient>();
 
         public async Task Save(EformMonitoringPnDbContext dbContext)
         {
