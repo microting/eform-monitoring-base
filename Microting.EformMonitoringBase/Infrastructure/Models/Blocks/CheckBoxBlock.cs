@@ -22,24 +22,26 @@ OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
 */
 
-namespace Microting.EformMonitoringBase.Infrastructure.Models
+namespace Microting.EformMonitoringBase.Infrastructure.Models.Blocks
 {
-    public class KeyValuePair
+    public class CheckBoxBlock : BaseDataItem
     {
-        public KeyValuePair(string key, string value, bool selected, string displayOrder)
+        public CheckBoxBlock(
+            int id,
+            string label,
+            string description,
+            bool defaultValue,
+            bool selected)
         {
-            Key = key;
-            Value = value;
+            Id = id;
+            Label = label;
+            Description = description;
+            DefaultValue = defaultValue;
             Selected = selected;
-            DisplayOrder = displayOrder;
         }
 
-        public string Key { get; set; }
-
-        public string Value { get; set; }
+        public bool DefaultValue { get; set; }
 
         public bool Selected { get; set; }
-
-        public string DisplayOrder { get; set; }
     }
 }

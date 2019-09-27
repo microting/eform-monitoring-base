@@ -22,30 +22,28 @@ OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
 */
 
-namespace Microting.EformMonitoringBase.Infrastructure.Models
+namespace Microting.EformMonitoringBase.Infrastructure.Models.Blocks
 {
-    using System.Collections.Generic;
+    using Enums;
 
-    public class SingleSelectBlock : BaseDataItem
+    public class NumberBlock : BaseDataItem
     {
-        public SingleSelectBlock()
-        {
-            KeyValuePairList = new List<KeyValuePair>();
-        }
-
-        public SingleSelectBlock(
+        public NumberBlock(
             int id,
             string label,
             string description,
-            List<KeyValuePair> keyValuePairList)
+            int value,
+            OperatorType type)
         {
-            KeyValuePairList = new List<KeyValuePair>();
             Id = id;
             Label = label;
             Description = description;
-            KeyValuePairList = keyValuePairList;
+            Value = value;
+            Type = type;
         }
 
-        public List<KeyValuePair> KeyValuePairList { get; set; }
+        public int Value { get; set; }
+
+        public OperatorType Type { get; set; }
     }
 }

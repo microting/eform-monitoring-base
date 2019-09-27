@@ -24,24 +24,21 @@ SOFTWARE.
 
 namespace Microting.EformMonitoringBase.Infrastructure.Models
 {
-    public class CheckBoxBlock : BaseDataItem
+    using System.Collections.Generic;
+    using Enums;
+
+    public class NotificationRuleModel
     {
-        public CheckBoxBlock(
-            int id,
-            string label,
-            string description,
-            bool defaultValue,
-            bool selected)
-        {
-            this.Id = id;
-            this.Label = label;
-            this.Description = description;
-            this.DefaultValue = defaultValue;
-            this.Selected = selected;
-        }
+        public int Id { get; set; }
+        public int TemplateId { get; set; }
+        public string Subject { get; set; }
+        public string Text { get; set; }
+        public bool AttachReport { get; set; }
+        public RuleType RuleType { get; set; }
+        public int DataItemId { get; set; }
+        public object Data { get; set; }
 
-        public bool DefaultValue { get; set; }
-
-        public bool Selected { get; set; }
+        public List<RecipientModel> Recipients { get; set; }
+            = new List<RecipientModel>();
     }
 }

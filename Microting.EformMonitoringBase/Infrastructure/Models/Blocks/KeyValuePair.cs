@@ -22,30 +22,24 @@ OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
 */
 
-namespace Microting.EformMonitoringBase.Infrastructure.Models
+namespace Microting.EformMonitoringBase.Infrastructure.Models.Blocks
 {
-    using System.Collections.Generic;
-
-    public class MultiSelectBlock : BaseDataItem
+    public class KeyValuePair
     {
-        public MultiSelectBlock()
+        public KeyValuePair(string key, string value, bool selected, string displayOrder)
         {
-            KeyValuePairList = new List<KeyValuePair>();
+            Key = key;
+            Value = value;
+            Selected = selected;
+            DisplayOrder = displayOrder;
         }
 
-        public MultiSelectBlock(
-            int id,
-            string label,
-            string description,
-            List<KeyValuePair> keyValuePairList)
-        {
-            KeyValuePairList = new List<KeyValuePair>();
-            Id = id;
-            Label = label;
-            Description = description;
-            KeyValuePairList = keyValuePairList;
-        }
+        public string Key { get; set; }
 
-        public List<KeyValuePair> KeyValuePairList { get; set; }
+        public string Value { get; set; }
+
+        public bool Selected { get; set; }
+
+        public string DisplayOrder { get; set; }
     }
 }

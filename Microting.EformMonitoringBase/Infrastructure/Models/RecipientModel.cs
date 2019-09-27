@@ -24,26 +24,9 @@ SOFTWARE.
 
 namespace Microting.EformMonitoringBase.Infrastructure.Models
 {
-    using Enums;
-
-    public class NumberBlock : BaseDataItem
+    public class RecipientModel
     {
-        public NumberBlock(
-            int id,
-            string label,
-            string description,
-            int value,
-            OperatorType type)
-        {
-            Id = id;
-            Label = label;
-            Description = description;
-            Value = value;
-            Type = type;
-        }
-
-        public int Value { get; set; }
-
-        public OperatorType Type { get; set; }
+        public int Id { get; set; }
+        public string Email { get; set; }
     }
 }

@@ -40,6 +40,7 @@ namespace Microting.EformMonitoringBase.Infrastructure.Data.Entities
         public bool AttachReport { get; set; }
 
         public RuleType RuleType { get; set; }
+        public int DataItemId { get; set; }
         public string Data { get; set; }
 
         public async Task Save(EformMonitoringPnDbContext dbContext)
@@ -51,6 +52,7 @@ namespace Microting.EformMonitoringBase.Infrastructure.Data.Entities
                 Subject = Subject,
                 Text = Text,
                 Data = Data,
+                DataItemId = DataItemId,
                 RuleType = RuleType,
                 CreatedAt = DateTime.UtcNow,
                 UpdatedAt = DateTime.UtcNow,
@@ -85,6 +87,7 @@ namespace Microting.EformMonitoringBase.Infrastructure.Data.Entities
             rule.AttachReport = AttachReport;
             rule.RuleType = RuleType;
             rule.Data = Data;
+            rule.DataItemId = DataItemId;
 
             rule.WorkflowState = WorkflowState;
             rule.UpdatedAt = UpdatedAt;
@@ -133,6 +136,7 @@ namespace Microting.EformMonitoringBase.Infrastructure.Data.Entities
                 Text = item.Text,
                 Version = item.Version,
                 Data = item.Data,
+                DataItemId = item.DataItemId,
                 RuleType = item.RuleType,
                 NotificationRuleId = item.Id,
                 CreatedAt = item.CreatedAt,
