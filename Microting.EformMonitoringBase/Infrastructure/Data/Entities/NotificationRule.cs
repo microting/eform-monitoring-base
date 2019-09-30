@@ -44,7 +44,7 @@ namespace Microting.EformMonitoringBase.Infrastructure.Data.Entities
         public int DataItemId { get; set; }
         public string Data { get; set; }
 
-        public List<Recipient> Recipients { get; set; }
+        public virtual List<Recipient> Recipients { get; set; }
             = new List<Recipient>();
 
         public async Task Save(EformMonitoringPnDbContext dbContext)

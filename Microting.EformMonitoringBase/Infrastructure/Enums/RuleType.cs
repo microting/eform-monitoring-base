@@ -26,8 +26,7 @@ namespace Microting.EformMonitoringBase.Infrastructure.Enums
 {
     public enum RuleType
     {
-        SingleList = 1,
-        MultiSelect,
+        Select = 1,
         CheckBox,
         Number
     }

@@ -26,14 +26,14 @@ namespace Microting.EformMonitoringBase.Infrastructure.Models.Blocks
 {
     using System.Collections.Generic;
 
-    public class SingleSelectBlock : BaseDataItem
+    public class SelectBlock : BaseDataItem
     {
-        public SingleSelectBlock()
+        public SelectBlock()
         {
             KeyValuePairList = new List<KeyValuePair>();
         }
 
-        public SingleSelectBlock(
+        public SelectBlock(
             int id,
             string label,
             string description,

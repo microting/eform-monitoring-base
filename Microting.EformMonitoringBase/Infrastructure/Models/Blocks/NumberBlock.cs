@@ -32,18 +32,22 @@ namespace Microting.EformMonitoringBase.Infrastructure.Models.Blocks
             int id,
             string label,
             string description,
-            int value,
-            OperatorType type)
+            int greaterThanValue,
+            int lessThanValue,
+            int equalValue)
         {
             Id = id;
             Label = label;
             Description = description;
-            Value = value;
-            Type = type;
+            GreaterThanValue = greaterThanValue;
+            LessThanValue = lessThanValue;
+            EqualValue = equalValue;
         }
 
-        public int Value { get; set; }
+        public int? GreaterThanValue { get; set; }
 
-        public OperatorType Type { get; set; }
+        public int? LessThanValue { get; set; }
+
+        public int? EqualValue { get; set; }
     }
 }
