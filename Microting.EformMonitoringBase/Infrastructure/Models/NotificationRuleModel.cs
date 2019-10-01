@@ -30,7 +30,7 @@ namespace Microting.EformMonitoringBase.Infrastructure.Models
     public class NotificationRuleModel
     {
         public int Id { get; set; }
-        public int TemplateId { get; set; }
+        public int CheckListId { get; set; }
         public string Subject { get; set; }
         public string Text { get; set; }
         public bool AttachReport { get; set; }

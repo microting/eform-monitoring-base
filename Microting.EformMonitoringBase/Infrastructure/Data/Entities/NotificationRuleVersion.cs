@@ -30,7 +30,7 @@ namespace Microting.EformMonitoringBase.Infrastructure.Data.Entities
 
     public class NotificationRuleVersion : BaseEntity
     {
-        public int TemplateId { get; set; }
+        public int CheckListId { get; set; }
         public string Subject { get; set; }
         public string Text { get; set; }
         public bool AttachReport { get; set; }

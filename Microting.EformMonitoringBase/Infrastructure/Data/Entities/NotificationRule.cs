@@ -35,7 +35,7 @@ namespace Microting.EformMonitoringBase.Infrastructure.Data.Entities
 
     public class NotificationRule : BaseEntity
     {
-        public int TemplateId { get; set; }
+        public int CheckListId { get; set; }
         public string Subject { get; set; }
         public string Text { get; set; }
         public bool AttachReport { get; set; }
@@ -51,7 +51,7 @@ namespace Microting.EformMonitoringBase.Infrastructure.Data.Entities
         {
             NotificationRule rule = new NotificationRule
             {
-                TemplateId = TemplateId,
+                CheckListId = CheckListId,
                 AttachReport = AttachReport,
                 Subject = Subject,
                 Text = Text,
@@ -85,7 +85,7 @@ namespace Microting.EformMonitoringBase.Infrastructure.Data.Entities
                 throw new NullReferenceException($"Could not find notification rule with id: {Id}");
             }
 
-            rule.TemplateId = TemplateId;
+            rule.CheckListId = CheckListId;
             rule.Subject = Subject;
             rule.Text = Text;
             rule.AttachReport = AttachReport;
@@ -134,7 +134,7 @@ namespace Microting.EformMonitoringBase.Infrastructure.Data.Entities
         {
             NotificationRuleVersion itemVersion = new NotificationRuleVersion
             {
-                TemplateId = item.TemplateId,
+                CheckListId = item.CheckListId,
                 AttachReport = item.AttachReport,
                 Subject = item.Subject,
                 Text = item.Text,
