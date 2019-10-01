@@ -26,7 +26,7 @@ namespace Microting.EformMonitoringBase.Infrastructure.Models
 {
     public class RecipientModel
     {
-        public int Id { get; set; }
+        public int? Id { get; set; }
         public string Email { get; set; }
     }
 }
