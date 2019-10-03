@@ -24,21 +24,15 @@ SOFTWARE.
 
 namespace Microting.EformMonitoringBase.Infrastructure.Models.Blocks
 {
-    using Enums;
-
     public class NumberBlock : BaseDataItem
     {
         public NumberBlock(
-            int id,
             string label,
             string description,
-            int greaterThanValue,
-            int lessThanValue,
-            int equalValue)
-        {
-            Id = id;
-            Label = label;
-            Description = description;
+            int? greaterThanValue,
+            int? lessThanValue,
+            int? equalValue
+        ) : base(label, description) {
             GreaterThanValue = greaterThanValue;
             LessThanValue = lessThanValue;
             EqualValue = equalValue;

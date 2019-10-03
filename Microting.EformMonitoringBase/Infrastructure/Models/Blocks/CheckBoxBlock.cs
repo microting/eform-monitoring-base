@@ -27,20 +27,12 @@ namespace Microting.EformMonitoringBase.Infrastructure.Models.Blocks
     public class CheckBoxBlock : BaseDataItem
     {
         public CheckBoxBlock(
-            int id,
             string label,
             string description,
-            bool defaultValue,
-            bool selected)
-        {
-            Id = id;
-            Label = label;
-            Description = description;
-            DefaultValue = defaultValue;
+            bool selected
+        ) : base(label, description) {
             Selected = selected;
         }
-
-        public bool DefaultValue { get; set; }
 
         public bool Selected { get; set; }
     }

@@ -28,21 +28,11 @@ namespace Microting.EformMonitoringBase.Infrastructure.Models.Blocks
 
     public class SelectBlock : BaseDataItem
     {
-        public SelectBlock()
-        {
-            KeyValuePairList = new List<KeyValuePair>();
-        }
-
         public SelectBlock(
-            int id,
             string label,
             string description,
-            List<KeyValuePair> keyValuePairList)
-        {
-            KeyValuePairList = new List<KeyValuePair>();
-            Id = id;
-            Label = label;
-            Description = description;
+            List<KeyValuePair> keyValuePairList
+        ) : base(label, description) {
             KeyValuePairList = keyValuePairList;
         }
 
