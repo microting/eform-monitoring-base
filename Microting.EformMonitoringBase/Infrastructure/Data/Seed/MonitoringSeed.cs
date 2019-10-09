@@ -22,37 +22,18 @@ OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
 */
 
-namespace Microting.EformMonitoringBase.Infrastructure.Data
+namespace Microting.EformMonitoringBase.Infrastructure.Data.Seed
 {
-    using eFormApi.BasePn.Abstractions;
-    using eFormApi.BasePn.Infrastructure.Database.Entities;
-    using Entities;
     using Microsoft.EntityFrameworkCore;
-    using Seed;
+    using SeedItems;
 
-    public class EformMonitoringPnDbContext : DbContext, IPluginDbContext
+    public static class MonitoringSeed
     {
-        public EformMonitoringPnDbContext() { }
-
-        public EformMonitoringPnDbContext(DbContextOptions<EformMonitoringPnDbContext> options) : base(options)
+        public static ModelBuilder SeedLatest(this ModelBuilder modelBuilder)
         {
-        }
+            modelBuilder.AddPermissions();
 
-        public DbSet<NotificationRule> Rules { get; set; }
-        public DbSet<NotificationRuleVersion> RuleVersions { get; set; }
-        public DbSet<Recipient> Recipients { get; set; }
-        public DbSet<Permission> Permissions { get; set; }
-        public DbSet<GroupPermission> GroupPermission { get; set; }
-
-        public DbSet<PluginConfigurationValue> PluginConfigurationValues { get; set; }
-        public DbSet<PluginConfigurationValueVersion> PluginConfigurationValueVersions { get; set; }
-
-        protected override void OnModelCreating(ModelBuilder modelBuilder)
-        {
-            base.OnModelCreating(modelBuilder);
-
-            // Seed
-            modelBuilder.SeedLatest();
+            return modelBuilder;
         }
     }
 }
