@@ -22,13 +22,14 @@ OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
 */
 
+using Microting.eForm.Infrastructure.Constants;
+
 namespace Microting.EformMonitoringBase.Infrastructure.Data.Entities
 {
     using System;
     using System.ComponentModel.DataAnnotations.Schema;
     using System.Threading.Tasks;
     using eFormApi.BasePn.Infrastructure.Database.Base;
-    using eFormShared;
     using Microsoft.EntityFrameworkCore;
 
     public class Recipient : BaseEntity

@@ -22,6 +22,8 @@ OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
 */
 
+using Microting.eForm.Infrastructure.Constants;
+
 namespace Microting.EformMonitoringBase.Infrastructure.Data.Entities
 {
     using System;
@@ -29,7 +31,6 @@ namespace Microting.EformMonitoringBase.Infrastructure.Data.Entities
     using System.Threading.Tasks;
     using Data;
     using eFormApi.BasePn.Infrastructure.Database.Base;
-    using eFormShared;
     using Enums;
     using Microsoft.EntityFrameworkCore;
 
