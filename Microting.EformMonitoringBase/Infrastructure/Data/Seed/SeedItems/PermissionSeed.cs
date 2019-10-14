@@ -25,38 +25,38 @@ SOFTWARE.
 namespace Microting.EformMonitoringBase.Infrastructure.Data.Seed.SeedItems
 {
     using Const;
-    using Entities;
+    using eFormApi.BasePn.Infrastructure.Database.Entities;
     using Microsoft.EntityFrameworkCore;
 
     public static class PermissionSeed
     {
         public static ModelBuilder AddPermissions(this ModelBuilder modelBuilder)
         {
-            modelBuilder.Entity<Permission>().HasData(
-                new Permission()
+            modelBuilder.Entity<PluginPermission>().HasData(
+                new PluginPermission()
                 {
                     Id = MonitoringPermissions.EditPluginSettings,
-                    PermissionName = "Edit Plugin Settings"
+                    Name = "Edit Plugin Settings"
                 },
-                new Permission()
+                new PluginPermission()
                 {
                     Id = MonitoringPermissions.ReadNotificationRules,
-                    PermissionName = "Read Notification Rules"
+                    Name = "Read Notification Rules"
                 },
-                new Permission()
+                new PluginPermission()
                 {
                     Id = MonitoringPermissions.CreateNotificationRules,
-                    PermissionName = "Create Notification Rules"
+                    Name = "Create Notification Rules"
                 },
-                new Permission()
+                new PluginPermission()
                 {
                     Id = MonitoringPermissions.UpdateNotificationRules,
-                    PermissionName = "Update Notification Rules"
+                    Name = "Update Notification Rules"
                 },
-                new Permission()
+                new PluginPermission()
                 {
                     Id = MonitoringPermissions.DeleteNotificationRules,
-                    PermissionName = "Delete Notification Rules"
+                    Name = "Delete Notification Rules"
                 }
             );
             return modelBuilder;

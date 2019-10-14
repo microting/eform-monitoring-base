@@ -9,7 +9,7 @@ namespace Microting.EformMonitoringBase.Migrations
         protected override void Up(MigrationBuilder migrationBuilder)
         {
             migrationBuilder.CreateTable(
-                name: "Permissions",
+                name: "PluginPermissions",
                 columns: table => new
                 {
                     Id = table.Column<int>(nullable: false)
@@ -20,15 +20,15 @@ namespace Microting.EformMonitoringBase.Migrations
                     CreatedByUserId = table.Column<int>(nullable: false),
                     UpdatedByUserId = table.Column<int>(nullable: false),
                     Version = table.Column<int>(nullable: false),
-                    PermissionName = table.Column<string>(maxLength: 250, nullable: true)
+                    Name = table.Column<string>(maxLength: 250, nullable: true)
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_Permissions", x => x.Id);
+                    table.PrimaryKey("PK_PluginPermissions", x => x.Id);
                 });
 
             migrationBuilder.CreateTable(
-                name: "GroupPermission",
+                name: "PluginGroupPermission",
                 columns: table => new
                 {
                     Id = table.Column<int>(nullable: false)
@@ -44,18 +44,18 @@ namespace Microting.EformMonitoringBase.Migrations
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_GroupPermission", x => x.Id);
+                    table.PrimaryKey("PK_PluginGroupPermission", x => x.Id);
                     table.ForeignKey(
-                        name: "FK_GroupPermission_Permissions_PermissionId",
+                        name: "FK_PluginGroupPermission_PluginPermissions_PermissionId",
                         column: x => x.PermissionId,
-                        principalTable: "Permissions",
+                        principalTable: "PluginPermissions",
                         principalColumn: "Id",
                         onDelete: ReferentialAction.Cascade);
                 });
 
             migrationBuilder.InsertData(
-                table: "Permissions",
-                columns: new[] { "Id", "CreatedAt", "CreatedByUserId", "PermissionName", "UpdatedAt", "UpdatedByUserId", "Version", "WorkflowState" },
+                table: "PluginPermissions",
+                columns: new[] { "Id", "CreatedAt", "CreatedByUserId", "Name", "UpdatedAt", "UpdatedByUserId", "Version", "WorkflowState" },
                 values: new object[,]
                 {
                     { 1, new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified), 0, "Edit Plugin Settings", null, 0, 0, null },
@@ -66,18 +66,18 @@ namespace Microting.EformMonitoringBase.Migrations
                 });
 
             migrationBuilder.CreateIndex(
-                name: "IX_GroupPermission_PermissionId",
-                table: "GroupPermission",
+                name: "IX_PluginGroupPermission_PermissionId",
+                table: "PluginGroupPermission",
                 column: "PermissionId");
         }
 
         protected override void Down(MigrationBuilder migrationBuilder)
         {
             migrationBuilder.DropTable(
-                name: "GroupPermission");
+                name: "PluginGroupPermission");
 
             migrationBuilder.DropTable(
-                name: "Permissions");
+                name: "PluginPermissions");
         }
     }
 }

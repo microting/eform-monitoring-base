@@ -41,11 +41,11 @@ namespace Microting.EformMonitoringBase.Infrastructure.Data
         public DbSet<NotificationRule> Rules { get; set; }
         public DbSet<NotificationRuleVersion> RuleVersions { get; set; }
         public DbSet<Recipient> Recipients { get; set; }
-        public DbSet<Permission> Permissions { get; set; }
-        public DbSet<GroupPermission> GroupPermission { get; set; }
 
         public DbSet<PluginConfigurationValue> PluginConfigurationValues { get; set; }
         public DbSet<PluginConfigurationValueVersion> PluginConfigurationValueVersions { get; set; }
+        public DbSet<PluginPermission> PluginPermissions { get; set; }
+        public DbSet<PluginGroupPermission> PluginGroupPermissions { get; set; }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
