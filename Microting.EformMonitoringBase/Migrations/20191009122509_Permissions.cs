@@ -28,7 +28,7 @@ namespace Microting.EformMonitoringBase.Migrations
                 });
 
             migrationBuilder.CreateTable(
-                name: "PluginGroupPermission",
+                name: "PluginGroupPermissions",
                 columns: table => new
                 {
                     Id = table.Column<int>(nullable: false)
@@ -40,13 +40,13 @@ namespace Microting.EformMonitoringBase.Migrations
                     UpdatedByUserId = table.Column<int>(nullable: false),
                     Version = table.Column<int>(nullable: false),
                     PermissionId = table.Column<int>(nullable: false),
-                    SecurityGroupId = table.Column<int>(nullable: false)
+                    GroupId = table.Column<int>(nullable: false)
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_PluginGroupPermission", x => x.Id);
+                    table.PrimaryKey("PK_PluginGroupPermissions", x => x.Id);
                     table.ForeignKey(
-                        name: "FK_PluginGroupPermission_PluginPermissions_PermissionId",
+                        name: "FK_PluginGroupPermissions_PluginPermissions_PermissionId",
                         column: x => x.PermissionId,
                         principalTable: "PluginPermissions",
                         principalColumn: "Id",
@@ -66,15 +66,15 @@ namespace Microting.EformMonitoringBase.Migrations
                 });
 
             migrationBuilder.CreateIndex(
-                name: "IX_PluginGroupPermission_PermissionId",
-                table: "PluginGroupPermission",
+                name: "IX_PluginGroupPermissions_PermissionId",
+                table: "PluginGroupPermissions",
                 column: "PermissionId");
         }
 
         protected override void Down(MigrationBuilder migrationBuilder)
         {
             migrationBuilder.DropTable(
-                name: "PluginGroupPermission");
+                name: "PluginGroupPermissions");
 
             migrationBuilder.DropTable(
                 name: "PluginPermissions");
