@@ -1,4 +1,4 @@
-﻿/*
+/*
 The MIT License (MIT)
 
 Copyright (c) 2007 - 2019 Microting A/S
@@ -22,26 +22,18 @@ OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
 */
 
-namespace Microting.EformMonitoringBase.Infrastructure.Models.Blocks
+namespace Microting.EformMonitoringBase.Infrastructure.Data.Seed
 {
-    public class NumberBlock : BaseDataItem
+    using Microsoft.EntityFrameworkCore;
+    using SeedItems;
+
+    public static class MonitoringSeed
     {
-        public NumberBlock(
-            string label,
-            string description,
-            int? greaterThanValue,
-            int? lessThanValue,
-            int? equalValue
-        ) : base(label, description) {
-            GreaterThanValue = greaterThanValue;
-            LessThanValue = lessThanValue;
-            EqualValue = equalValue;
+        public static ModelBuilder SeedLatest(this ModelBuilder modelBuilder)
+        {
+            modelBuilder.AddPermissions();
+
+            return modelBuilder;
         }
-
-        public int? GreaterThanValue { get; set; }
-
-        public int? LessThanValue { get; set; }
-
-        public int? EqualValue { get; set; }
     }
 }

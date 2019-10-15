@@ -3,15 +3,17 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using Microting.EformMonitoringBase.Infrastructure.Data;
 
 namespace Microting.EformMonitoringBase.Migrations
 {
     [DbContext(typeof(EformMonitoringPnDbContext))]
-    partial class EformMonitoringPnDbContextModelSnapshot : ModelSnapshot
+    [Migration("20191009122509_Permissions")]
+    partial class Permissions
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder

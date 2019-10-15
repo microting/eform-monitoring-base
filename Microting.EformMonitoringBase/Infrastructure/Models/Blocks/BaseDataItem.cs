@@ -28,11 +28,15 @@ namespace Microting.EformMonitoringBase.Infrastructure.Models.Blocks
 
     public class BaseDataItem
     {
-        public int Id { get; set; }
-
         public string Label { get; set; }
 
         public string Description { get; set; }
+
+        public BaseDataItem(string label, string description)
+        {
+            Label = label;
+            Description = description;
+        }
 
         public override string ToString()
         {
