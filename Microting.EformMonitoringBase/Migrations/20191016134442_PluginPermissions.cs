@@ -4,23 +4,36 @@ using Microsoft.EntityFrameworkCore.Migrations;
 
 namespace Microting.EformMonitoringBase.Migrations
 {
-    public partial class Permissions : Migration
+    public partial class PluginPermissions : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
+            //Setup for SQL Server Provider
+            var autoIdGenStrategy = "SqlServer:ValueGenerationStrategy";
+            object autoIdGenStrategyValue = SqlServerValueGenerationStrategy.IdentityColumn;
+
+            // Setup for MySQL Provider
+            if (migrationBuilder.ActiveProvider == "Pomelo.EntityFrameworkCore.MySql")
+            {
+                DbConfig.IsMySQL = true;
+                autoIdGenStrategy = "MySql:ValueGenerationStrategy";
+                autoIdGenStrategyValue = MySqlValueGenerationStrategy.IdentityColumn;
+            }
+
             migrationBuilder.CreateTable(
                 name: "PluginPermissions",
                 columns: table => new
                 {
                     Id = table.Column<int>(nullable: false)
-                        .Annotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn),
+                        .Annotation(autoIdGenStrategy, autoIdGenStrategyValue),
                     CreatedAt = table.Column<DateTime>(nullable: false),
                     UpdatedAt = table.Column<DateTime>(nullable: true),
                     WorkflowState = table.Column<string>(maxLength: 255, nullable: true),
                     CreatedByUserId = table.Column<int>(nullable: false),
                     UpdatedByUserId = table.Column<int>(nullable: false),
                     Version = table.Column<int>(nullable: false),
-                    Name = table.Column<string>(maxLength: 250, nullable: true)
+                    PermissionName = table.Column<string>(nullable: true),
+                    ClaimName = table.Column<string>(nullable: true)
                 },
                 constraints: table =>
                 {
@@ -32,15 +45,15 @@ namespace Microting.EformMonitoringBase.Migrations
                 columns: table => new
                 {
                     Id = table.Column<int>(nullable: false)
-                        .Annotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn),
+                        .Annotation(autoIdGenStrategy, autoIdGenStrategyValue),
                     CreatedAt = table.Column<DateTime>(nullable: false),
                     UpdatedAt = table.Column<DateTime>(nullable: true),
                     WorkflowState = table.Column<string>(maxLength: 255, nullable: true),
                     CreatedByUserId = table.Column<int>(nullable: false),
                     UpdatedByUserId = table.Column<int>(nullable: false),
                     Version = table.Column<int>(nullable: false),
-                    PermissionId = table.Column<int>(nullable: false),
-                    GroupId = table.Column<int>(nullable: false)
+                    GroupId = table.Column<int>(nullable: false),
+                    PermissionId = table.Column<int>(nullable: false)
                 },
                 constraints: table =>
                 {
@@ -55,14 +68,13 @@ namespace Microting.EformMonitoringBase.Migrations
 
             migrationBuilder.InsertData(
                 table: "PluginPermissions",
-                columns: new[] { "Id", "CreatedAt", "CreatedByUserId", "Name", "UpdatedAt", "UpdatedByUserId", "Version", "WorkflowState" },
+                columns: new[] { "Id", "ClaimName", "CreatedAt", "CreatedByUserId", "PermissionName", "UpdatedAt", "UpdatedByUserId", "Version", "WorkflowState" },
                 values: new object[,]
                 {
-                    { 1, new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified), 0, "Edit Plugin Settings", null, 0, 0, null },
-                    { 2, new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified), 0, "Read Notification Rules", null, 0, 0, null },
-                    { 3, new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified), 0, "Create Notification Rules", null, 0, 0, null },
-                    { 4, new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified), 0, "Update Notification Rules", null, 0, 0, null },
-                    { 5, new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified), 0, "Delete Notification Rules", null, 0, 0, null }
+                    { 1, "notification_rules_read", new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified), 0, "Read Notification Rules", null, 0, 0, null },
+                    { 2, "notification_rules_create", new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified), 0, "Create Notification Rules", null, 0, 0, null },
+                    { 3, "notification_rules_update", new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified), 0, "Update Notification Rules", null, 0, 0, null },
+                    { 4, "notification_rules_delete", new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified), 0, "Delete Notification Rules", null, 0, 0, null }
                 });
 
             migrationBuilder.CreateIndex(
