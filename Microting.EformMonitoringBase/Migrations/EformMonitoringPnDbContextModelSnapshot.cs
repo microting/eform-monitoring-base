@@ -15,39 +15,9 @@ namespace Microting.EformMonitoringBase.Migrations
         {
 #pragma warning disable 612, 618
             modelBuilder
-                .HasAnnotation("ProductVersion", "2.2.4-servicing-10062")
+                .HasAnnotation("ProductVersion", "2.2.6-servicing-10079")
                 .HasAnnotation("Relational:MaxIdentifierLength", 128)
                 .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
-
-            modelBuilder.Entity("Microting.EformMonitoringBase.Infrastructure.Data.Entities.GroupPermission", b =>
-                {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
-
-                    b.Property<DateTime>("CreatedAt");
-
-                    b.Property<int>("CreatedByUserId");
-
-                    b.Property<int>("PermissionId");
-
-                    b.Property<int>("SecurityGroupId");
-
-                    b.Property<DateTime?>("UpdatedAt");
-
-                    b.Property<int>("UpdatedByUserId");
-
-                    b.Property<int>("Version");
-
-                    b.Property<string>("WorkflowState")
-                        .HasMaxLength(255);
-
-                    b.HasKey("Id");
-
-                    b.HasIndex("PermissionId");
-
-                    b.ToTable("GroupPermission");
-                });
 
             modelBuilder.Entity("Microting.EformMonitoringBase.Infrastructure.Data.Entities.NotificationRule", b =>
                 {
@@ -125,80 +95,6 @@ namespace Microting.EformMonitoringBase.Migrations
                     b.HasKey("Id");
 
                     b.ToTable("RuleVersions");
-                });
-
-            modelBuilder.Entity("Microting.EformMonitoringBase.Infrastructure.Data.Entities.Permission", b =>
-                {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
-
-                    b.Property<DateTime>("CreatedAt");
-
-                    b.Property<int>("CreatedByUserId");
-
-                    b.Property<string>("PermissionName")
-                        .HasMaxLength(250);
-
-                    b.Property<DateTime?>("UpdatedAt");
-
-                    b.Property<int>("UpdatedByUserId");
-
-                    b.Property<int>("Version");
-
-                    b.Property<string>("WorkflowState")
-                        .HasMaxLength(255);
-
-                    b.HasKey("Id");
-
-                    b.ToTable("Permissions");
-
-                    b.HasData(
-                        new
-                        {
-                            Id = 1,
-                            CreatedAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            CreatedByUserId = 0,
-                            PermissionName = "Edit Plugin Settings",
-                            UpdatedByUserId = 0,
-                            Version = 0
-                        },
-                        new
-                        {
-                            Id = 2,
-                            CreatedAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            CreatedByUserId = 0,
-                            PermissionName = "Read Notification Rules",
-                            UpdatedByUserId = 0,
-                            Version = 0
-                        },
-                        new
-                        {
-                            Id = 3,
-                            CreatedAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            CreatedByUserId = 0,
-                            PermissionName = "Create Notification Rules",
-                            UpdatedByUserId = 0,
-                            Version = 0
-                        },
-                        new
-                        {
-                            Id = 4,
-                            CreatedAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            CreatedByUserId = 0,
-                            PermissionName = "Update Notification Rules",
-                            UpdatedByUserId = 0,
-                            Version = 0
-                        },
-                        new
-                        {
-                            Id = 5,
-                            CreatedAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            CreatedByUserId = 0,
-                            PermissionName = "Delete Notification Rules",
-                            UpdatedByUserId = 0,
-                            Version = 0
-                        });
                 });
 
             modelBuilder.Entity("Microting.EformMonitoringBase.Infrastructure.Data.Entities.Recipient", b =>
@@ -287,12 +183,104 @@ namespace Microting.EformMonitoringBase.Migrations
                     b.ToTable("PluginConfigurationValueVersions");
                 });
 
-            modelBuilder.Entity("Microting.EformMonitoringBase.Infrastructure.Data.Entities.GroupPermission", b =>
+            modelBuilder.Entity("Microting.eFormApi.BasePn.Infrastructure.Database.Entities.PluginGroupPermission", b =>
                 {
-                    b.HasOne("Microting.EformMonitoringBase.Infrastructure.Data.Entities.Permission", "Permission")
-                        .WithMany()
-                        .HasForeignKey("PermissionId")
-                        .OnDelete(DeleteBehavior.Cascade);
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<DateTime>("CreatedAt");
+
+                    b.Property<int>("CreatedByUserId");
+
+                    b.Property<int>("GroupId");
+
+                    b.Property<int>("PermissionId");
+
+                    b.Property<DateTime?>("UpdatedAt");
+
+                    b.Property<int>("UpdatedByUserId");
+
+                    b.Property<int>("Version");
+
+                    b.Property<string>("WorkflowState")
+                        .HasMaxLength(255);
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("PermissionId");
+
+                    b.ToTable("PluginGroupPermissions");
+                });
+
+            modelBuilder.Entity("Microting.eFormApi.BasePn.Infrastructure.Database.Entities.PluginPermission", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<string>("ClaimName");
+
+                    b.Property<DateTime>("CreatedAt");
+
+                    b.Property<int>("CreatedByUserId");
+
+                    b.Property<string>("PermissionName");
+
+                    b.Property<DateTime?>("UpdatedAt");
+
+                    b.Property<int>("UpdatedByUserId");
+
+                    b.Property<int>("Version");
+
+                    b.Property<string>("WorkflowState")
+                        .HasMaxLength(255);
+
+                    b.HasKey("Id");
+
+                    b.ToTable("PluginPermissions");
+
+                    b.HasData(
+                        new
+                        {
+                            Id = 1,
+                            ClaimName = "notification_rules_read",
+                            CreatedAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            CreatedByUserId = 0,
+                            PermissionName = "Read Notification Rules",
+                            UpdatedByUserId = 0,
+                            Version = 0
+                        },
+                        new
+                        {
+                            Id = 2,
+                            ClaimName = "notification_rules_create",
+                            CreatedAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            CreatedByUserId = 0,
+                            PermissionName = "Create Notification Rules",
+                            UpdatedByUserId = 0,
+                            Version = 0
+                        },
+                        new
+                        {
+                            Id = 3,
+                            ClaimName = "notification_rules_update",
+                            CreatedAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            CreatedByUserId = 0,
+                            PermissionName = "Update Notification Rules",
+                            UpdatedByUserId = 0,
+                            Version = 0
+                        },
+                        new
+                        {
+                            Id = 4,
+                            ClaimName = "notification_rules_delete",
+                            CreatedAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            CreatedByUserId = 0,
+                            PermissionName = "Delete Notification Rules",
+                            UpdatedByUserId = 0,
+                            Version = 0
+                        });
                 });
 
             modelBuilder.Entity("Microting.EformMonitoringBase.Infrastructure.Data.Entities.Recipient", b =>
@@ -300,6 +288,14 @@ namespace Microting.EformMonitoringBase.Migrations
                     b.HasOne("Microting.EformMonitoringBase.Infrastructure.Data.Entities.NotificationRule")
                         .WithMany("Recipients")
                         .HasForeignKey("NotificationRuleId")
+                        .OnDelete(DeleteBehavior.Cascade);
+                });
+
+            modelBuilder.Entity("Microting.eFormApi.BasePn.Infrastructure.Database.Entities.PluginGroupPermission", b =>
+                {
+                    b.HasOne("Microting.eFormApi.BasePn.Infrastructure.Database.Entities.PluginPermission", "Permission")
+                        .WithMany()
+                        .HasForeignKey("PermissionId")
                         .OnDelete(DeleteBehavior.Cascade);
                 });
 #pragma warning restore 612, 618

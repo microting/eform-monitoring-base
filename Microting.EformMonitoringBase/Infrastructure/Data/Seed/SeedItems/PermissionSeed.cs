@@ -35,28 +35,27 @@ namespace Microting.EformMonitoringBase.Infrastructure.Data.Seed.SeedItems
             modelBuilder.Entity<PluginPermission>().HasData(
                 new PluginPermission()
                 {
-                    Id = MonitoringPermissions.EditPluginSettings,
-                    Name = "Edit Plugin Settings"
-                },
-                new PluginPermission()
-                {
                     Id = MonitoringPermissions.ReadNotificationRules,
-                    Name = "Read Notification Rules"
+                    PermissionName = "Read Notification Rules",
+                    ClaimName = MonitoringClaims.ReadNotificationRules
                 },
                 new PluginPermission()
                 {
                     Id = MonitoringPermissions.CreateNotificationRules,
-                    Name = "Create Notification Rules"
+                    PermissionName = "Create Notification Rules",
+                    ClaimName = MonitoringClaims.CreateNotificationRules
                 },
                 new PluginPermission()
                 {
                     Id = MonitoringPermissions.UpdateNotificationRules,
-                    Name = "Update Notification Rules"
+                    PermissionName = "Update Notification Rules",
+                    ClaimName = MonitoringClaims.UpdateNotificationRules
                 },
                 new PluginPermission()
                 {
                     Id = MonitoringPermissions.DeleteNotificationRules,
-                    Name = "Delete Notification Rules"
+                    PermissionName = "Delete Notification Rules",
+                    ClaimName = MonitoringClaims.DeleteNotificationRules
                 }
             );
             return modelBuilder;
