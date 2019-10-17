@@ -28,8 +28,8 @@ namespace Microting.EformMonitoringBase.Infrastructure.Data.Entities
     using System.ComponentModel.DataAnnotations.Schema;
     using System.Threading.Tasks;
     using eFormApi.BasePn.Infrastructure.Database.Base;
-    using eFormShared;
     using Microsoft.EntityFrameworkCore;
+    using Microting.eForm.Infrastructure.Constants;
 
     public class Recipient : BaseEntity
     {

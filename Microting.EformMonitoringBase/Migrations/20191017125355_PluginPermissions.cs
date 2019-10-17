@@ -8,24 +8,12 @@ namespace Microting.EformMonitoringBase.Migrations
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
-            //Setup for SQL Server Provider
-            var autoIdGenStrategy = "SqlServer:ValueGenerationStrategy";
-            object autoIdGenStrategyValue = SqlServerValueGenerationStrategy.IdentityColumn;
-
-            // Setup for MySQL Provider
-            if (migrationBuilder.ActiveProvider == "Pomelo.EntityFrameworkCore.MySql")
-            {
-                DbConfig.IsMySQL = true;
-                autoIdGenStrategy = "MySql:ValueGenerationStrategy";
-                autoIdGenStrategyValue = MySqlValueGenerationStrategy.IdentityColumn;
-            }
-
             migrationBuilder.CreateTable(
                 name: "PluginPermissions",
                 columns: table => new
                 {
                     Id = table.Column<int>(nullable: false)
-                        .Annotation(autoIdGenStrategy, autoIdGenStrategyValue),
+                        .Annotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn),
                     CreatedAt = table.Column<DateTime>(nullable: false),
                     UpdatedAt = table.Column<DateTime>(nullable: true),
                     WorkflowState = table.Column<string>(maxLength: 255, nullable: true),
@@ -45,7 +33,7 @@ namespace Microting.EformMonitoringBase.Migrations
                 columns: table => new
                 {
                     Id = table.Column<int>(nullable: false)
-                        .Annotation(autoIdGenStrategy, autoIdGenStrategyValue),
+                        .Annotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn),
                     CreatedAt = table.Column<DateTime>(nullable: false),
                     UpdatedAt = table.Column<DateTime>(nullable: true),
                     WorkflowState = table.Column<string>(maxLength: 255, nullable: true),
@@ -64,17 +52,6 @@ namespace Microting.EformMonitoringBase.Migrations
                         principalTable: "PluginPermissions",
                         principalColumn: "Id",
                         onDelete: ReferentialAction.Cascade);
-                });
-
-            migrationBuilder.InsertData(
-                table: "PluginPermissions",
-                columns: new[] { "Id", "ClaimName", "CreatedAt", "CreatedByUserId", "PermissionName", "UpdatedAt", "UpdatedByUserId", "Version", "WorkflowState" },
-                values: new object[,]
-                {
-                    { 1, "notification_rules_read", new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified), 0, "Read Notification Rules", null, 0, 0, null },
-                    { 2, "notification_rules_create", new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified), 0, "Create Notification Rules", null, 0, 0, null },
-                    { 3, "notification_rules_update", new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified), 0, "Update Notification Rules", null, 0, 0, null },
-                    { 4, "notification_rules_delete", new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified), 0, "Delete Notification Rules", null, 0, 0, null }
                 });
 
             migrationBuilder.CreateIndex(

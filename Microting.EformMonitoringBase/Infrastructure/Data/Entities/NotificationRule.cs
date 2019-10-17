@@ -29,9 +29,9 @@ namespace Microting.EformMonitoringBase.Infrastructure.Data.Entities
     using System.Threading.Tasks;
     using Data;
     using eFormApi.BasePn.Infrastructure.Database.Base;
-    using eFormShared;
     using Enums;
     using Microsoft.EntityFrameworkCore;
+    using Microting.eForm.Infrastructure.Constants;
 
     public class NotificationRule : BaseEntity
     {
