@@ -8,12 +8,24 @@ namespace Microting.EformMonitoringBase.Migrations
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
+            //Setup for SQL Server Provider
+            var autoIdGenStrategy = "SqlServer:ValueGenerationStrategy";
+            object autoIdGenStrategyValue = SqlServerValueGenerationStrategy.IdentityColumn;
+
+            // Setup for MySQL Provider
+            if (migrationBuilder.ActiveProvider == "Pomelo.EntityFrameworkCore.MySql")
+            {
+                DbConfig.IsMySQL = true;
+                autoIdGenStrategy = "MySql:ValueGenerationStrategy";
+                autoIdGenStrategyValue = MySqlValueGenerationStrategy.IdentityColumn;
+            }
+
             migrationBuilder.CreateTable(
                 name: "PluginPermissions",
                 columns: table => new
                 {
                     Id = table.Column<int>(nullable: false)
-                        .Annotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn),
+                        .Annotation(autoIdGenStrategy, autoIdGenStrategyValue),
                     CreatedAt = table.Column<DateTime>(nullable: false),
                     UpdatedAt = table.Column<DateTime>(nullable: true),
                     WorkflowState = table.Column<string>(maxLength: 255, nullable: true),
@@ -33,7 +45,7 @@ namespace Microting.EformMonitoringBase.Migrations
                 columns: table => new
                 {
                     Id = table.Column<int>(nullable: false)
-                        .Annotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn),
+                        .Annotation(autoIdGenStrategy, autoIdGenStrategyValue),
                     CreatedAt = table.Column<DateTime>(nullable: false),
                     UpdatedAt = table.Column<DateTime>(nullable: true),
                     WorkflowState = table.Column<string>(maxLength: 255, nullable: true),

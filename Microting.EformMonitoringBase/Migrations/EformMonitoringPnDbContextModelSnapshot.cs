@@ -13,17 +13,25 @@ namespace Microting.EformMonitoringBase.Migrations
     {
         protected override void BuildModel(ModelBuilder modelBuilder)
         {
+            string autoIdGenStrategy = "SqlServer:ValueGenerationStrategy";
+            object autoIdGenStrategyValue = SqlServerValueGenerationStrategy.IdentityColumn;
+            if (DbConfig.IsMySQL)
+            {
+                autoIdGenStrategy = "MySql:ValueGenerationStrategy";
+                autoIdGenStrategyValue = MySqlValueGenerationStrategy.IdentityColumn;
+            }
+
 #pragma warning disable 612, 618
             modelBuilder
                 .HasAnnotation("ProductVersion", "2.2.6-servicing-10079")
                 .HasAnnotation("Relational:MaxIdentifierLength", 128)
-                .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+                .HasAnnotation(autoIdGenStrategy, autoIdGenStrategyValue);
 
             modelBuilder.Entity("Microting.EformMonitoringBase.Infrastructure.Data.Entities.NotificationRule", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
-                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+                        .HasAnnotation(autoIdGenStrategy, autoIdGenStrategyValue);
 
                     b.Property<bool>("AttachReport");
 
@@ -61,7 +69,7 @@ namespace Microting.EformMonitoringBase.Migrations
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
-                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+                        .HasAnnotation(autoIdGenStrategy, autoIdGenStrategyValue);
 
                     b.Property<bool>("AttachReport");
 
@@ -101,7 +109,7 @@ namespace Microting.EformMonitoringBase.Migrations
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
-                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+                        .HasAnnotation(autoIdGenStrategy, autoIdGenStrategyValue);
 
                     b.Property<DateTime>("CreatedAt");
 
@@ -131,7 +139,7 @@ namespace Microting.EformMonitoringBase.Migrations
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
-                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+                        .HasAnnotation(autoIdGenStrategy, autoIdGenStrategyValue);
 
                     b.Property<DateTime>("CreatedAt");
 
@@ -159,7 +167,7 @@ namespace Microting.EformMonitoringBase.Migrations
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
-                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+                        .HasAnnotation(autoIdGenStrategy, autoIdGenStrategyValue);
 
                     b.Property<DateTime>("CreatedAt");
 
@@ -187,7 +195,7 @@ namespace Microting.EformMonitoringBase.Migrations
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
-                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+                        .HasAnnotation(autoIdGenStrategy, autoIdGenStrategyValue);
 
                     b.Property<DateTime>("CreatedAt");
 
@@ -217,7 +225,7 @@ namespace Microting.EformMonitoringBase.Migrations
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
-                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+                        .HasAnnotation(autoIdGenStrategy, autoIdGenStrategyValue);
 
                     b.Property<string>("ClaimName");
 
