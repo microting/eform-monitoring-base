@@ -31,6 +31,7 @@ namespace Microting.EformMonitoringBase.Infrastructure.Data.Entities
     using System.Threading.Tasks;
     using eFormApi.BasePn.Infrastructure.Database.Base;
     using Microsoft.EntityFrameworkCore;
+    using Microting.eForm.Infrastructure.Constants;
 
     public class Recipient : BaseEntity
     {

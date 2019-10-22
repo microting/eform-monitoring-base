@@ -33,6 +33,7 @@ namespace Microting.EformMonitoringBase.Infrastructure.Data.Entities
     using eFormApi.BasePn.Infrastructure.Database.Base;
     using Enums;
     using Microsoft.EntityFrameworkCore;
+    using Microting.eForm.Infrastructure.Constants;
 
     public class NotificationRule : BaseEntity
     {

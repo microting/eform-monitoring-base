@@ -66,17 +66,6 @@ namespace Microting.EformMonitoringBase.Migrations
                         onDelete: ReferentialAction.Cascade);
                 });
 
-            migrationBuilder.InsertData(
-                table: "PluginPermissions",
-                columns: new[] { "Id", "ClaimName", "CreatedAt", "CreatedByUserId", "PermissionName", "UpdatedAt", "UpdatedByUserId", "Version", "WorkflowState" },
-                values: new object[,]
-                {
-                    { 1, "notification_rules_read", new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified), 0, "Read Notification Rules", null, 0, 0, null },
-                    { 2, "notification_rules_create", new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified), 0, "Create Notification Rules", null, 0, 0, null },
-                    { 3, "notification_rules_update", new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified), 0, "Update Notification Rules", null, 0, 0, null },
-                    { 4, "notification_rules_delete", new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified), 0, "Delete Notification Rules", null, 0, 0, null }
-                });
-
             migrationBuilder.CreateIndex(
                 name: "IX_PluginGroupPermissions_PermissionId",
                 table: "PluginGroupPermissions",

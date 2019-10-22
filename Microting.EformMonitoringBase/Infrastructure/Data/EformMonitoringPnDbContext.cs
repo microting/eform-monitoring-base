@@ -28,7 +28,6 @@ namespace Microting.EformMonitoringBase.Infrastructure.Data
     using eFormApi.BasePn.Infrastructure.Database.Entities;
     using Entities;
     using Microsoft.EntityFrameworkCore;
-    using Seed;
 
     public class EformMonitoringPnDbContext : DbContext, IPluginDbContext
     {
@@ -46,13 +45,5 @@ namespace Microting.EformMonitoringBase.Infrastructure.Data
         public DbSet<PluginConfigurationValueVersion> PluginConfigurationValueVersions { get; set; }
         public DbSet<PluginPermission> PluginPermissions { get; set; }
         public DbSet<PluginGroupPermission> PluginGroupPermissions { get; set; }
-
-        protected override void OnModelCreating(ModelBuilder modelBuilder)
-        {
-            base.OnModelCreating(modelBuilder);
-
-            // Seed
-            modelBuilder.SeedLatest();
-        }
     }
 }

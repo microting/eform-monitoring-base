@@ -10,7 +10,7 @@ using Microting.EformMonitoringBase.Infrastructure.Data;
 namespace Microting.EformMonitoringBase.Migrations
 {
     [DbContext(typeof(EformMonitoringPnDbContext))]
-    [Migration("20191016134442_PluginPermissions")]
+    [Migration("20191017125355_PluginPermissions")]
     partial class PluginPermissions
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -241,48 +241,6 @@ namespace Microting.EformMonitoringBase.Migrations
                     b.HasKey("Id");
 
                     b.ToTable("PluginPermissions");
-
-                    b.HasData(
-                        new
-                        {
-                            Id = 1,
-                            ClaimName = "notification_rules_read",
-                            CreatedAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            CreatedByUserId = 0,
-                            PermissionName = "Read Notification Rules",
-                            UpdatedByUserId = 0,
-                            Version = 0
-                        },
-                        new
-                        {
-                            Id = 2,
-                            ClaimName = "notification_rules_create",
-                            CreatedAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            CreatedByUserId = 0,
-                            PermissionName = "Create Notification Rules",
-                            UpdatedByUserId = 0,
-                            Version = 0
-                        },
-                        new
-                        {
-                            Id = 3,
-                            ClaimName = "notification_rules_update",
-                            CreatedAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            CreatedByUserId = 0,
-                            PermissionName = "Update Notification Rules",
-                            UpdatedByUserId = 0,
-                            Version = 0
-                        },
-                        new
-                        {
-                            Id = 4,
-                            ClaimName = "notification_rules_delete",
-                            CreatedAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            CreatedByUserId = 0,
-                            PermissionName = "Delete Notification Rules",
-                            UpdatedByUserId = 0,
-                            Version = 0
-                        });
                 });
 
             modelBuilder.Entity("Microting.EformMonitoringBase.Infrastructure.Data.Entities.Recipient", b =>

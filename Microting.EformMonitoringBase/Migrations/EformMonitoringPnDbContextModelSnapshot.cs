@@ -13,17 +13,25 @@ namespace Microting.EformMonitoringBase.Migrations
     {
         protected override void BuildModel(ModelBuilder modelBuilder)
         {
+            string autoIdGenStrategy = "SqlServer:ValueGenerationStrategy";
+            object autoIdGenStrategyValue = SqlServerValueGenerationStrategy.IdentityColumn;
+            if (DbConfig.IsMySQL)
+            {
+                autoIdGenStrategy = "MySql:ValueGenerationStrategy";
+                autoIdGenStrategyValue = MySqlValueGenerationStrategy.IdentityColumn;
+            }
+
 #pragma warning disable 612, 618
             modelBuilder
                 .HasAnnotation("ProductVersion", "2.2.6-servicing-10079")
                 .HasAnnotation("Relational:MaxIdentifierLength", 128)
-                .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+                .HasAnnotation(autoIdGenStrategy, autoIdGenStrategyValue);
 
             modelBuilder.Entity("Microting.EformMonitoringBase.Infrastructure.Data.Entities.NotificationRule", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
-                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+                        .HasAnnotation(autoIdGenStrategy, autoIdGenStrategyValue);
 
                     b.Property<bool>("AttachReport");
 
@@ -61,7 +69,7 @@ namespace Microting.EformMonitoringBase.Migrations
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
-                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+                        .HasAnnotation(autoIdGenStrategy, autoIdGenStrategyValue);
 
                     b.Property<bool>("AttachReport");
 
@@ -101,7 +109,7 @@ namespace Microting.EformMonitoringBase.Migrations
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
-                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+                        .HasAnnotation(autoIdGenStrategy, autoIdGenStrategyValue);
 
                     b.Property<DateTime>("CreatedAt");
 
@@ -131,7 +139,7 @@ namespace Microting.EformMonitoringBase.Migrations
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
-                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+                        .HasAnnotation(autoIdGenStrategy, autoIdGenStrategyValue);
 
                     b.Property<DateTime>("CreatedAt");
 
@@ -159,7 +167,7 @@ namespace Microting.EformMonitoringBase.Migrations
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
-                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+                        .HasAnnotation(autoIdGenStrategy, autoIdGenStrategyValue);
 
                     b.Property<DateTime>("CreatedAt");
 
@@ -187,7 +195,7 @@ namespace Microting.EformMonitoringBase.Migrations
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
-                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+                        .HasAnnotation(autoIdGenStrategy, autoIdGenStrategyValue);
 
                     b.Property<DateTime>("CreatedAt");
 
@@ -217,7 +225,7 @@ namespace Microting.EformMonitoringBase.Migrations
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
-                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+                        .HasAnnotation(autoIdGenStrategy, autoIdGenStrategyValue);
 
                     b.Property<string>("ClaimName");
 
@@ -239,48 +247,6 @@ namespace Microting.EformMonitoringBase.Migrations
                     b.HasKey("Id");
 
                     b.ToTable("PluginPermissions");
-
-                    b.HasData(
-                        new
-                        {
-                            Id = 1,
-                            ClaimName = "notification_rules_read",
-                            CreatedAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            CreatedByUserId = 0,
-                            PermissionName = "Read Notification Rules",
-                            UpdatedByUserId = 0,
-                            Version = 0
-                        },
-                        new
-                        {
-                            Id = 2,
-                            ClaimName = "notification_rules_create",
-                            CreatedAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            CreatedByUserId = 0,
-                            PermissionName = "Create Notification Rules",
-                            UpdatedByUserId = 0,
-                            Version = 0
-                        },
-                        new
-                        {
-                            Id = 3,
-                            ClaimName = "notification_rules_update",
-                            CreatedAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            CreatedByUserId = 0,
-                            PermissionName = "Update Notification Rules",
-                            UpdatedByUserId = 0,
-                            Version = 0
-                        },
-                        new
-                        {
-                            Id = 4,
-                            ClaimName = "notification_rules_delete",
-                            CreatedAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            CreatedByUserId = 0,
-                            PermissionName = "Delete Notification Rules",
-                            UpdatedByUserId = 0,
-                            Version = 0
-                        });
                 });
 
             modelBuilder.Entity("Microting.EformMonitoringBase.Infrastructure.Data.Entities.Recipient", b =>

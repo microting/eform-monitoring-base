@@ -2,7 +2,7 @@
 {
     public static class MonitoringClaims
     {
-        public const string ReadNotificationRules = "notification_rules_read";
+        public const string AccessMonitoringPlugin = "monitoring_plugin_access";
         public const string CreateNotificationRules = "notification_rules_create";
         public const string UpdateNotificationRules = "notification_rules_update";
         public const string DeleteNotificationRules = "notification_rules_delete";
