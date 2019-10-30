@@ -38,7 +38,9 @@ namespace Microting.EformMonitoringBase.Infrastructure.Data.Factories
         public EformMonitoringPnDbContext CreateDbContext(string[] args)
         {
             //args = new[]
-            //    {"Data Source=.\\SQLEXPRESS;Database=monitoring-plugin;Integrated Security=True"};
+            //    {"host=localhost;Database=monitoring-pl;Uid=root;Pwd=111111;port=3306;Convert Zero Datetime = true;SslMode=none;PersistSecurityInfo=true;"};
+            //args = new[]
+            //    {"Data Source=.\\SQLEXPRESS;Database=monitoring-pl;Integrated Security=True"};
             var optionsBuilder = new DbContextOptionsBuilder<EformMonitoringPnDbContext>();
             if (args.Any())
             {
