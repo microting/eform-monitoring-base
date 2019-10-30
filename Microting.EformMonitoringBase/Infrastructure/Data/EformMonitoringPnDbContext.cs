@@ -46,5 +46,16 @@ namespace Microting.EformMonitoringBase.Infrastructure.Data
         public DbSet<PluginPermission> PluginPermissions { get; set; }
         public DbSet<PluginGroupPermission> PluginGroupPermissions { get; set; }
         public DbSet<PluginGroupPermissionVersion> PluginGroupPermissionVersions { get; set; }
+
+        protected override void OnModelCreating(ModelBuilder modelBuilder)
+        {
+            base.OnModelCreating(modelBuilder);
+
+            modelBuilder.Entity<PluginGroupPermissionVersion>()
+                .HasOne(x => x.PluginGroupPermission)
+                .WithMany()
+                .HasForeignKey("FK_PluginGroupPermissionVersions_PluginGroupPermissionId")
+                .OnDelete(DeleteBehavior.Restrict);
+        }
     }
 }
