@@ -26,7 +26,7 @@ namespace Microting.EformMonitoringBase.Infrastructure.Models
 {
     public class DeviceUserModel
     {
-        public int Id { get; set; }
+        public int? Id { get; set; }
         public string FirstName { get; set; }
         public string LastName { get; set; }
     }
