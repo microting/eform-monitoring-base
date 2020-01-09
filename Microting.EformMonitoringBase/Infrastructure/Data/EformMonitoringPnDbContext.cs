@@ -40,6 +40,7 @@ namespace Microting.EformMonitoringBase.Infrastructure.Data
         public DbSet<NotificationRule> Rules { get; set; }
         public DbSet<NotificationRuleVersion> RuleVersions { get; set; }
         public DbSet<Recipient> Recipients { get; set; }
+        public DbSet<DeviceUser> DeviceUsers { get; set; }
 
         public DbSet<PluginConfigurationValue> PluginConfigurationValues { get; set; }
         public DbSet<PluginConfigurationValueVersion> PluginConfigurationValueVersions { get; set; }
