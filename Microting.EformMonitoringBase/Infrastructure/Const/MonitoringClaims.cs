@@ -1,4 +1,4 @@
-﻿namespace Microting.EformMonitoringBase.Infrastructure.Data.Const
+﻿namespace Microting.EformMonitoringBase.Infrastructure.Const
 {
     public static class MonitoringClaims
     {

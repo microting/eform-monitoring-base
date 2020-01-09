@@ -22,8 +22,6 @@ OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
 */
 
-using Microting.eForm.Infrastructure.Constants;
-
 namespace Microting.EformMonitoringBase.Infrastructure.Data.Entities
 {
     using System;
@@ -48,6 +46,8 @@ namespace Microting.EformMonitoringBase.Infrastructure.Data.Entities
 
         public virtual List<Recipient> Recipients { get; set; }
             = new List<Recipient>();
+        public virtual List<DeviceUser> DeviceUsers { get; set; }
+            = new List<DeviceUser>();
 
         public async Task Save(EformMonitoringPnDbContext dbContext)
         {

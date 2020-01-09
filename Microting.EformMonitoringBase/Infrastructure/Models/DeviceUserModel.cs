@@ -24,23 +24,10 @@ SOFTWARE.
 
 namespace Microting.EformMonitoringBase.Infrastructure.Models
 {
-    using System.Collections.Generic;
-    using Enums;
-
-    public class NotificationRuleModel
+    public class DeviceUserModel
     {
-        public int? Id { get; set; }
-        public int CheckListId { get; set; }
-        public string Subject { get; set; }
-        public string Text { get; set; }
-        public bool AttachReport { get; set; }
-        public RuleType RuleType { get; set; }
-        public int DataItemId { get; set; }
-        public object Data { get; set; }
-
-        public List<RecipientModel> Recipients { get; set; }
-            = new List<RecipientModel>();
-        public List<DeviceUserModel> DeviceUsers { get; set; }
-            = new List<DeviceUserModel>();
+        public int Id { get; set; }
+        public string FirstName { get; set; }
+        public string LastName { get; set; }
     }
 }

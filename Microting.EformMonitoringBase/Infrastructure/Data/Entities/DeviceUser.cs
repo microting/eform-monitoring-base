@@ -31,16 +31,16 @@ namespace Microting.EformMonitoringBase.Infrastructure.Data.Entities
     using Microsoft.EntityFrameworkCore;
     using Microting.eForm.Infrastructure.Constants;
 
-    public class Recipient : BaseEntity
+    public class DeviceUser : BaseEntity
     {
-        public string Email { get; set; }
+        public int DeviceUserId { get; set; }
 
         [ForeignKey(nameof(NotificationRule))]
         public int NotificationRuleId { get; set; }
 
         public async Task Save(EformMonitoringPnDbContext dbContext)
         {
-            var recipient = new Recipient
+            var deviceUser = new DeviceUser
             {
                 CreatedAt = DateTime.UtcNow,
                 UpdatedAt = DateTime.UtcNow,
@@ -49,30 +49,30 @@ namespace Microting.EformMonitoringBase.Infrastructure.Data.Entities
                 UpdatedByUserId = UpdatedByUserId,
                 CreatedByUserId = CreatedByUserId,
                 NotificationRuleId = NotificationRuleId,
-                Email = Email,
+                DeviceUserId = DeviceUserId,
             };
 
-            await dbContext.Recipients.AddAsync(recipient);
+            await dbContext.DeviceUsers.AddAsync(deviceUser);
             await dbContext.SaveChangesAsync();
 
-            Id = recipient.Id;
+            Id = deviceUser.Id;
         }
 
         public async Task Delete(EformMonitoringPnDbContext dbContext)
         {            
-            var recipient = await dbContext.Recipients
+            var deviceUser = await dbContext.DeviceUsers
                 .FirstOrDefaultAsync(x => x.Id == Id);
 
-            if (recipient == null)
+            if (deviceUser == null)
             {
-                throw new NullReferenceException($"Could not find notification rule with id: {Id}");
+                throw new NullReferenceException($"Could not find device user in notification rule with id: {Id}");
             }
 
-            recipient.WorkflowState = Constants.WorkflowStates.Removed;
-            recipient.UpdatedAt = DateTime.UtcNow;
-            recipient.Version += 1;
+            deviceUser.WorkflowState = Constants.WorkflowStates.Removed;
+            deviceUser.UpdatedAt = DateTime.UtcNow;
+            deviceUser.Version += 1;
 
-            dbContext.Recipients.Update(recipient);
+            dbContext.DeviceUsers.Update(deviceUser);
             await dbContext.SaveChangesAsync();
         }
     }
