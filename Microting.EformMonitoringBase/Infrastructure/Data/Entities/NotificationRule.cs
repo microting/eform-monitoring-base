@@ -41,7 +41,7 @@ namespace Microting.EformMonitoringBase.Infrastructure.Data.Entities
         public bool AttachReport { get; set; }
 
         public RuleType RuleType { get; set; }
-        public int DataItemId { get; set; }
+        public int? DataItemId { get; set; }
         public string Data { get; set; }
 
         public virtual List<Recipient> Recipients { get; set; }
