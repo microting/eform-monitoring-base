@@ -34,7 +34,7 @@ namespace Microting.EformMonitoringBase.Infrastructure.Data.Entities
         public string Subject { get; set; }
         public string Text { get; set; }
         public bool AttachReport { get; set; }
-        public RuleType RuleType { get; set; }
+        public RuleType? RuleType { get; set; }
         public int? DataItemId { get; set; }
         public string Data { get; set; }
 
