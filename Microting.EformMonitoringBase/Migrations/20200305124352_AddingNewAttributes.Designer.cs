@@ -10,8 +10,8 @@ using Microting.EformMonitoringBase.Infrastructure.Data;
 namespace Microting.EformMonitoringBase.Migrations
 {
     [DbContext(typeof(EformMonitoringPnDbContext))]
-    [Migration("20191001113248_UpdateTemplateId")]
-    partial class UpdateTemplateId
+    [Migration("20200305124352_AddingNewAttributes")]
+    partial class AddingNewAttributes
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -24,15 +24,47 @@ namespace Microting.EformMonitoringBase.Migrations
                 autoIDGenStrategyValue = MySqlValueGenerationStrategy.IdentityColumn;
             }
             modelBuilder
-                .HasAnnotation("ProductVersion", "2.2.4-servicing-10062")
+                .HasAnnotation("ProductVersion", "2.2.6-servicing-10079")
                 .HasAnnotation("Relational:MaxIdentifierLength", 128)
                 .HasAnnotation(autoIDGenStrategy, autoIDGenStrategyValue);
+
+            modelBuilder.Entity("Microting.EformMonitoringBase.Infrastructure.Data.Entities.DeviceUser", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasAnnotation(autoIDGenStrategy, autoIDGenStrategyValue);
+
+                    b.Property<DateTime>("CreatedAt");
+
+                    b.Property<int>("CreatedByUserId");
+
+                    b.Property<int>("DeviceUserId");
+
+                    b.Property<int>("NotificationRuleId");
+
+                    b.Property<DateTime?>("UpdatedAt");
+
+                    b.Property<int>("UpdatedByUserId");
+
+                    b.Property<int>("Version");
+
+                    b.Property<string>("WorkflowState")
+                        .HasMaxLength(255);
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("NotificationRuleId");
+
+                    b.ToTable("DeviceUsers");
+                });
 
             modelBuilder.Entity("Microting.EformMonitoringBase.Infrastructure.Data.Entities.NotificationRule", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
                         .HasAnnotation(autoIDGenStrategy, autoIDGenStrategyValue);
+
+                    b.Property<bool>("AttachLink");
 
                     b.Property<bool>("AttachReport");
 
@@ -44,9 +76,11 @@ namespace Microting.EformMonitoringBase.Migrations
 
                     b.Property<string>("Data");
 
-                    b.Property<int>("DataItemId");
+                    b.Property<int?>("DataItemId");
 
-                    b.Property<int>("RuleType");
+                    b.Property<bool>("IncludeValue");
+
+                    b.Property<int?>("RuleType");
 
                     b.Property<string>("Subject");
 
@@ -82,11 +116,11 @@ namespace Microting.EformMonitoringBase.Migrations
 
                     b.Property<string>("Data");
 
-                    b.Property<int>("DataItemId");
+                    b.Property<int?>("DataItemId");
 
                     b.Property<int>("NotificationRuleId");
 
-                    b.Property<int>("RuleType");
+                    b.Property<int?>("RuleType");
 
                     b.Property<string>("Subject");
 
@@ -192,11 +226,138 @@ namespace Microting.EformMonitoringBase.Migrations
                     b.ToTable("PluginConfigurationValueVersions");
                 });
 
+            modelBuilder.Entity("Microting.eFormApi.BasePn.Infrastructure.Database.Entities.PluginGroupPermission", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasAnnotation(autoIDGenStrategy, autoIDGenStrategyValue);
+
+                    b.Property<DateTime>("CreatedAt");
+
+                    b.Property<int>("CreatedByUserId");
+
+                    b.Property<int>("GroupId");
+
+                    b.Property<bool>("IsEnabled");
+
+                    b.Property<int>("PermissionId");
+
+                    b.Property<DateTime?>("UpdatedAt");
+
+                    b.Property<int>("UpdatedByUserId");
+
+                    b.Property<int>("Version");
+
+                    b.Property<string>("WorkflowState")
+                        .HasMaxLength(255);
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("PermissionId");
+
+                    b.ToTable("PluginGroupPermissions");
+                });
+
+            modelBuilder.Entity("Microting.eFormApi.BasePn.Infrastructure.Database.Entities.PluginGroupPermissionVersion", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasAnnotation(autoIDGenStrategy, autoIDGenStrategyValue);
+
+                    b.Property<DateTime>("CreatedAt");
+
+                    b.Property<int>("CreatedByUserId");
+
+                    b.Property<int?>("FK_PluginGroupPermissionVersions_PluginGroupPermissionId");
+
+                    b.Property<int>("GroupId");
+
+                    b.Property<bool>("IsEnabled");
+
+                    b.Property<int>("PermissionId");
+
+                    b.Property<int>("PluginGroupPermissionId");
+
+                    b.Property<DateTime?>("UpdatedAt");
+
+                    b.Property<int>("UpdatedByUserId");
+
+                    b.Property<int>("Version");
+
+                    b.Property<string>("WorkflowState")
+                        .HasMaxLength(255);
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("FK_PluginGroupPermissionVersions_PluginGroupPermissionId");
+
+                    b.HasIndex("PermissionId");
+
+                    b.ToTable("PluginGroupPermissionVersions");
+                });
+
+            modelBuilder.Entity("Microting.eFormApi.BasePn.Infrastructure.Database.Entities.PluginPermission", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasAnnotation(autoIDGenStrategy, autoIDGenStrategyValue);
+
+                    b.Property<string>("ClaimName");
+
+                    b.Property<DateTime>("CreatedAt");
+
+                    b.Property<int>("CreatedByUserId");
+
+                    b.Property<string>("PermissionName");
+
+                    b.Property<DateTime?>("UpdatedAt");
+
+                    b.Property<int>("UpdatedByUserId");
+
+                    b.Property<int>("Version");
+
+                    b.Property<string>("WorkflowState")
+                        .HasMaxLength(255);
+
+                    b.HasKey("Id");
+
+                    b.ToTable("PluginPermissions");
+                });
+
+            modelBuilder.Entity("Microting.EformMonitoringBase.Infrastructure.Data.Entities.DeviceUser", b =>
+                {
+                    b.HasOne("Microting.EformMonitoringBase.Infrastructure.Data.Entities.NotificationRule")
+                        .WithMany("DeviceUsers")
+                        .HasForeignKey("NotificationRuleId")
+                        .OnDelete(DeleteBehavior.Cascade);
+                });
+
             modelBuilder.Entity("Microting.EformMonitoringBase.Infrastructure.Data.Entities.Recipient", b =>
                 {
                     b.HasOne("Microting.EformMonitoringBase.Infrastructure.Data.Entities.NotificationRule")
                         .WithMany("Recipients")
                         .HasForeignKey("NotificationRuleId")
+                        .OnDelete(DeleteBehavior.Cascade);
+                });
+
+            modelBuilder.Entity("Microting.eFormApi.BasePn.Infrastructure.Database.Entities.PluginGroupPermission", b =>
+                {
+                    b.HasOne("Microting.eFormApi.BasePn.Infrastructure.Database.Entities.PluginPermission", "Permission")
+                        .WithMany()
+                        .HasForeignKey("PermissionId")
+                        .OnDelete(DeleteBehavior.Cascade);
+                });
+
+            modelBuilder.Entity("Microting.eFormApi.BasePn.Infrastructure.Database.Entities.PluginGroupPermissionVersion", b =>
+                {
+                    b.HasOne("Microting.eFormApi.BasePn.Infrastructure.Database.Entities.PluginGroupPermission", "PluginGroupPermission")
+                        .WithMany()
+                        .HasForeignKey("FK_PluginGroupPermissionVersions_PluginGroupPermissionId")
+                        .OnDelete(DeleteBehavior.Restrict);
+
+                    b.HasOne("Microting.eFormApi.BasePn.Infrastructure.Database.Entities.PluginPermission", "Permission")
+                        .WithMany()
+                        .HasForeignKey("PermissionId")
                         .OnDelete(DeleteBehavior.Cascade);
                 });
 #pragma warning restore 612, 618

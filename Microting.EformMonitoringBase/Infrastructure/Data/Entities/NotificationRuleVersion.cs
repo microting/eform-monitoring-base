@@ -37,6 +37,8 @@ namespace Microting.EformMonitoringBase.Infrastructure.Data.Entities
         public RuleType? RuleType { get; set; }
         public int? DataItemId { get; set; }
         public string Data { get; set; }
+        public bool AttachLink { get; set; }
+        public bool IncludeValue { get; set; }
 
         [ForeignKey(nameof(NotificationRule))]
         public int NotificationRuleId { get; set; }

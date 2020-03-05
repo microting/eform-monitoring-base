@@ -39,6 +39,8 @@ namespace Microting.EformMonitoringBase.Infrastructure.Data.Entities
         public string Subject { get; set; }
         public string Text { get; set; }
         public bool AttachReport { get; set; }
+        public bool AttachLink { get; set; }
+        public bool IncludeValue { get; set; }
 
         public RuleType? RuleType { get; set; }
         public int? DataItemId { get; set; }
@@ -49,7 +51,7 @@ namespace Microting.EformMonitoringBase.Infrastructure.Data.Entities
         public virtual List<DeviceUser> DeviceUsers { get; set; }
             = new List<DeviceUser>();
 
-        public async Task Save(EformMonitoringPnDbContext dbContext)
+        public async Task Create(EformMonitoringPnDbContext dbContext)
         {
             NotificationRule rule = new NotificationRule
             {
@@ -66,13 +68,15 @@ namespace Microting.EformMonitoringBase.Infrastructure.Data.Entities
                 WorkflowState = Constants.WorkflowStates.Created,
                 UpdatedByUserId = UpdatedByUserId,
                 CreatedByUserId = CreatedByUserId,
+                AttachLink = AttachLink,
+                IncludeValue = IncludeValue
             };
 
-            await dbContext.Rules.AddAsync(rule);
-            await dbContext.SaveChangesAsync();
+            await dbContext.Rules.AddAsync(rule).ConfigureAwait(false);
+            await dbContext.SaveChangesAsync().ConfigureAwait(false);
 
-            await dbContext.RuleVersions.AddAsync(MapVersion(rule));
-            await dbContext.SaveChangesAsync();
+            await dbContext.RuleVersions.AddAsync(MapVersion(rule)).ConfigureAwait(false);
+            await dbContext.SaveChangesAsync().ConfigureAwait(false);
 
             Id = rule.Id;
         }
@@ -80,7 +84,7 @@ namespace Microting.EformMonitoringBase.Infrastructure.Data.Entities
         public async Task Update(EformMonitoringPnDbContext dbContext)
         {
             var rule = await dbContext.Rules
-                .FirstOrDefaultAsync(x => x.Id == Id);
+                .FirstOrDefaultAsync(x => x.Id == Id).ConfigureAwait(false);
 
             if (rule == null)
             {
@@ -98,21 +102,23 @@ namespace Microting.EformMonitoringBase.Infrastructure.Data.Entities
             rule.WorkflowState = WorkflowState;
             rule.UpdatedAt = UpdatedAt;
             rule.UpdatedByUserId = UpdatedByUserId;
+            rule.AttachLink = AttachLink;
+            rule.IncludeValue = IncludeValue;
 
             if (dbContext.ChangeTracker.HasChanges())
             {
                 rule.UpdatedAt = DateTime.UtcNow;
                 rule.Version += 1;
 
-                await dbContext.RuleVersions.AddAsync(MapVersion(rule));
-                await dbContext.SaveChangesAsync();
+                await dbContext.RuleVersions.AddAsync(MapVersion(rule)).ConfigureAwait(false);
+                await dbContext.SaveChangesAsync().ConfigureAwait(false);
             }
         }
 
         public async Task Delete(EformMonitoringPnDbContext dbContext)
         {            
             var rule = await dbContext.Rules
-                .FirstOrDefaultAsync(x => x.Id == Id);
+                .FirstOrDefaultAsync(x => x.Id == Id).ConfigureAwait(false);
 
             if (rule == null)
             {
@@ -126,8 +132,8 @@ namespace Microting.EformMonitoringBase.Infrastructure.Data.Entities
                 rule.UpdatedAt = DateTime.UtcNow;
                 rule.Version += 1;
 
-                await dbContext.RuleVersions.AddAsync(MapVersion(rule));
-                await dbContext.SaveChangesAsync();
+                await dbContext.RuleVersions.AddAsync(MapVersion(rule)).ConfigureAwait(false);
+                await dbContext.SaveChangesAsync().ConfigureAwait(false);
             }
             
         }
@@ -150,6 +156,8 @@ namespace Microting.EformMonitoringBase.Infrastructure.Data.Entities
                 WorkflowState = item.WorkflowState,
                 UpdatedByUserId = item.UpdatedByUserId,
                 CreatedByUserId = item.CreatedByUserId,
+                AttachLink = item.AttachLink,
+                IncludeValue = item.IncludeValue
             };
 
             return itemVersion;

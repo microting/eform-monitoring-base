@@ -38,7 +38,7 @@ namespace Microting.EformMonitoringBase.Infrastructure.Data.Entities
         [ForeignKey(nameof(NotificationRule))]
         public int NotificationRuleId { get; set; }
 
-        public async Task Save(EformMonitoringPnDbContext dbContext)
+        public async Task Create(EformMonitoringPnDbContext dbContext)
         {
             var deviceUser = new DeviceUser
             {
@@ -52,8 +52,8 @@ namespace Microting.EformMonitoringBase.Infrastructure.Data.Entities
                 DeviceUserId = DeviceUserId,
             };
 
-            await dbContext.DeviceUsers.AddAsync(deviceUser);
-            await dbContext.SaveChangesAsync();
+            await dbContext.DeviceUsers.AddAsync(deviceUser).ConfigureAwait(false);
+            await dbContext.SaveChangesAsync().ConfigureAwait(false);
 
             Id = deviceUser.Id;
         }
@@ -73,7 +73,7 @@ namespace Microting.EformMonitoringBase.Infrastructure.Data.Entities
             deviceUser.Version += 1;
 
             dbContext.DeviceUsers.Update(deviceUser);
-            await dbContext.SaveChangesAsync();
+            await dbContext.SaveChangesAsync().ConfigureAwait(false);
         }
     }
 }

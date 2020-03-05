@@ -38,7 +38,7 @@ namespace Microting.EformMonitoringBase.Infrastructure.Data.Entities
         [ForeignKey(nameof(NotificationRule))]
         public int NotificationRuleId { get; set; }
 
-        public async Task Save(EformMonitoringPnDbContext dbContext)
+        public async Task Create(EformMonitoringPnDbContext dbContext)
         {
             var recipient = new Recipient
             {
@@ -52,8 +52,8 @@ namespace Microting.EformMonitoringBase.Infrastructure.Data.Entities
                 Email = Email,
             };
 
-            await dbContext.Recipients.AddAsync(recipient);
-            await dbContext.SaveChangesAsync();
+            await dbContext.Recipients.AddAsync(recipient).ConfigureAwait(false);
+            await dbContext.SaveChangesAsync().ConfigureAwait(false);
 
             Id = recipient.Id;
         }
@@ -61,7 +61,7 @@ namespace Microting.EformMonitoringBase.Infrastructure.Data.Entities
         public async Task Delete(EformMonitoringPnDbContext dbContext)
         {            
             var recipient = await dbContext.Recipients
-                .FirstOrDefaultAsync(x => x.Id == Id);
+                .FirstOrDefaultAsync(x => x.Id == Id).ConfigureAwait(false);
 
             if (recipient == null)
             {
@@ -73,7 +73,7 @@ namespace Microting.EformMonitoringBase.Infrastructure.Data.Entities
             recipient.Version += 1;
 
             dbContext.Recipients.Update(recipient);
-            await dbContext.SaveChangesAsync();
+            await dbContext.SaveChangesAsync().ConfigureAwait(false);
         }
     }
 }

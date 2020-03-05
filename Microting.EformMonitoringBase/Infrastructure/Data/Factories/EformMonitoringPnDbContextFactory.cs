@@ -37,10 +37,6 @@ namespace Microting.EformMonitoringBase.Infrastructure.Data.Factories
     {
         public EformMonitoringPnDbContext CreateDbContext(string[] args)
         {
-            //args = new[]
-            //    {"host=localhost;Database=monitoring-pl;Uid=root;Pwd=111111;port=3306;Convert Zero Datetime = true;SslMode=none;PersistSecurityInfo=true;"};
-            //args = new[]
-            //    {"Data Source=.\\SQLEXPRESS;Database=monitoring-plug;Integrated Security=True"};
             var optionsBuilder = new DbContextOptionsBuilder<EformMonitoringPnDbContext>();
             if (args.Any())
             {
@@ -57,6 +53,9 @@ namespace Microting.EformMonitoringBase.Infrastructure.Data.Factories
             {
                 throw new ArgumentNullException($"Connection string not present");
             }
+            
+//            optionsBuilder.UseSqlServer(@"data source=(LocalDb)\SharedInstance;Initial catalog=monitoring-pn-tests;Integrated Security=True");
+//            dotnet ef migrations add InitialCreate --project Microting.EformMonitoringBase --startup-project DBMigrator
             optionsBuilder.UseLazyLoadingProxies();
             return new EformMonitoringPnDbContext(optionsBuilder.Options);
         }

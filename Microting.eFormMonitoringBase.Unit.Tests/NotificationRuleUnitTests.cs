@@ -28,7 +28,7 @@ namespace Microting.eFormMonitoringBase.Unit.Tests
             rule.AttachReport = rnd.NextDouble() >= 0.5;
             rule.RuleType = RuleType.Number; 
             // Act
-            await rule.Save(DbContext);
+            await rule.Create(DbContext).ConfigureAwait(false);
 
             NotificationRule dbNotificationRule = DbContext.Rules.AsNoTracking().First();
             List<NotificationRule> notificationRuleList = DbContext.Rules.AsNoTracking().ToList();
@@ -60,7 +60,7 @@ namespace Microting.eFormMonitoringBase.Unit.Tests
             rule.AttachReport = rnd.NextDouble() >= 0.5;
             rule.RuleType = RuleType.CheckBox; 
             // Act
-            await rule.Save(DbContext);
+            await rule.Create(DbContext).ConfigureAwait(false);
 
             NotificationRule dbNotificationRule = DbContext.Rules.AsNoTracking().First();
             List<NotificationRule> notificationRuleList = DbContext.Rules.AsNoTracking().ToList();
@@ -92,7 +92,7 @@ namespace Microting.eFormMonitoringBase.Unit.Tests
             rule.AttachReport = rnd.NextDouble() >= 0.5;
             rule.RuleType = RuleType.Select;
             // Act
-            await rule.Save(DbContext);
+            await rule.Create(DbContext).ConfigureAwait(false);
 
             NotificationRule dbNotificationRule = DbContext.Rules.AsNoTracking().First();
             List<NotificationRule> notificationRuleList = DbContext.Rules.AsNoTracking().ToList();
@@ -123,7 +123,7 @@ namespace Microting.eFormMonitoringBase.Unit.Tests
             rule.DataItemId = rnd.Next(1, 255);
             rule.AttachReport = rnd.NextDouble() >= 0.5;
             rule.RuleType = RuleType.Number;
-            await rule.Save(DbContext);
+            await rule.Create(DbContext).ConfigureAwait(false);
 
             string newData = Guid.NewGuid().ToString();
             string newSubject = Guid.NewGuid().ToString();
@@ -139,7 +139,7 @@ namespace Microting.eFormMonitoringBase.Unit.Tests
             rule.DataItemId = newDataItemId;
             rule.AttachReport = newAttachReport;
             rule.RuleType = RuleType.CheckBox;
-            await rule.Update(DbContext);
+            await rule.Update(DbContext).ConfigureAwait(false);
 
             NotificationRule dbNotificationRule = DbContext.Rules.AsNoTracking().First();
             List<NotificationRule> notificationRuleList = DbContext.Rules.AsNoTracking().ToList();
@@ -173,7 +173,7 @@ namespace Microting.eFormMonitoringBase.Unit.Tests
             rule.DataItemId = rnd.Next(1, 255);
             rule.AttachReport = rnd.NextDouble() >= 0.5;
             rule.RuleType = RuleType.CheckBox;
-            await rule.Save(DbContext);
+            await rule.Create(DbContext).ConfigureAwait(false);
 
             string newData = Guid.NewGuid().ToString();
             string newSubject = Guid.NewGuid().ToString();
@@ -189,7 +189,7 @@ namespace Microting.eFormMonitoringBase.Unit.Tests
             rule.DataItemId = newDataItemId;
             rule.AttachReport = newAttachReport;
             rule.RuleType = RuleType.Select;
-            await rule.Update(DbContext);
+            await rule.Update(DbContext).ConfigureAwait(false);
 
             NotificationRule dbNotificationRule = DbContext.Rules.AsNoTracking().First();
             List<NotificationRule> notificationRuleList = DbContext.Rules.AsNoTracking().ToList();
@@ -222,7 +222,7 @@ namespace Microting.eFormMonitoringBase.Unit.Tests
             rule.DataItemId = rnd.Next(1, 255);
             rule.AttachReport = rnd.NextDouble() >= 0.5;
             rule.RuleType = RuleType.Select; 
-            await rule.Save(DbContext);
+            await rule.Create(DbContext).ConfigureAwait(false);
 
             string newData = Guid.NewGuid().ToString();
             string newSubject = Guid.NewGuid().ToString();
@@ -238,7 +238,7 @@ namespace Microting.eFormMonitoringBase.Unit.Tests
             rule.DataItemId = newDataItemId;
             rule.AttachReport = newAttachReport;
             rule.RuleType = RuleType.Number;
-            await rule.Update(DbContext);
+            await rule.Update(DbContext).ConfigureAwait(false);
 
             NotificationRule dbNotificationRule = DbContext.Rules.AsNoTracking().First();
             List<NotificationRule> notificationRuleList = DbContext.Rules.AsNoTracking().ToList();
@@ -271,9 +271,9 @@ namespace Microting.eFormMonitoringBase.Unit.Tests
             rule.DataItemId = rnd.Next(1, 255);
             rule.AttachReport = rnd.NextDouble() >= 0.5;
             rule.RuleType = RuleType.Number; 
-            await rule.Save(DbContext);
+            await rule.Create(DbContext).ConfigureAwait(false);
             // Act
-            await rule.Delete(DbContext);
+            await rule.Delete(DbContext).ConfigureAwait(false);
             
             NotificationRule dbNotificationRule = DbContext.Rules.AsNoTracking().First();
             List<NotificationRule> notificationRuleList = DbContext.Rules.AsNoTracking().ToList();
@@ -307,9 +307,9 @@ namespace Microting.eFormMonitoringBase.Unit.Tests
             rule.DataItemId = rnd.Next(1, 255);
             rule.AttachReport = rnd.NextDouble() >= 0.5;
             rule.RuleType = RuleType.CheckBox; 
-            await rule.Save(DbContext);
+            await rule.Create(DbContext).ConfigureAwait(false);
             // Act
-            await rule.Delete(DbContext);
+            await rule.Delete(DbContext).ConfigureAwait(false);
             
             NotificationRule dbNotificationRule = DbContext.Rules.AsNoTracking().First();
             List<NotificationRule> notificationRuleList = DbContext.Rules.AsNoTracking().ToList();
@@ -343,10 +343,10 @@ namespace Microting.eFormMonitoringBase.Unit.Tests
             rule.DataItemId = rnd.Next(1, 255);
             rule.AttachReport = rnd.NextDouble() >= 0.5;
             rule.RuleType = RuleType.Select;
-            await rule.Save(DbContext);
+            await rule.Create(DbContext).ConfigureAwait(false);
 
             // Act
-            await rule.Delete(DbContext);
+            await rule.Delete(DbContext).ConfigureAwait(false);
             
             NotificationRule dbNotificationRule = DbContext.Rules.AsNoTracking().First();
             List<NotificationRule> notificationRuleList = DbContext.Rules.AsNoTracking().ToList();

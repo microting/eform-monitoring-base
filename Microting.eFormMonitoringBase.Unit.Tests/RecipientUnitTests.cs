@@ -27,7 +27,7 @@ namespace Microting.eFormMonitoringBase.Unit.Tests
             rule.DataItemId = rnd.Next(1, 255);
             rule.AttachReport = rnd.NextDouble() >= 0.5;
             rule.RuleType = RuleType.Number; 
-            await rule.Save(DbContext);
+            await rule.Create(DbContext).ConfigureAwait(false);
 
             NotificationRule ruleForRecipient = DbContext.Rules.AsNoTracking().First();
             
@@ -37,7 +37,7 @@ namespace Microting.eFormMonitoringBase.Unit.Tests
             recipient.NotificationRuleId = ruleForRecipient.Id;
             
             //Act
-            await recipient.Save(DbContext);
+            await recipient.Create(DbContext).ConfigureAwait(false);
 
             Recipient dbRecipient = DbContext.Recipients.AsNoTracking().First();
             List<Recipient> recipientList = DbContext.Recipients.AsNoTracking().ToList();
@@ -62,7 +62,7 @@ namespace Microting.eFormMonitoringBase.Unit.Tests
             rule.DataItemId = rnd.Next(1, 255);
             rule.AttachReport = rnd.NextDouble() >= 0.5;
             rule.RuleType = RuleType.Number; 
-            await rule.Save(DbContext);
+            await rule.Create(DbContext).ConfigureAwait(false);
 
             NotificationRule ruleForRecipient = DbContext.Rules.AsNoTracking().First();
             
@@ -70,10 +70,10 @@ namespace Microting.eFormMonitoringBase.Unit.Tests
 
             recipient.Email = Guid.NewGuid().ToString();
             recipient.NotificationRuleId = ruleForRecipient.Id;
-            await recipient.Save(DbContext);
+            await recipient.Create(DbContext).ConfigureAwait(false);
 
             //Act
-            await recipient.Delete(DbContext);
+            await recipient.Delete(DbContext).ConfigureAwait(false);
             
             Recipient dbRecipient = DbContext.Recipients.AsNoTracking().First();
             List<Recipient> recipientList = DbContext.Recipients.AsNoTracking().ToList();
