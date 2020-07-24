@@ -37,27 +37,13 @@ namespace Microting.EformMonitoringBase.Infrastructure.Data.Factories
     {
         public EformMonitoringPnDbContext CreateDbContext(string[] args)
         {
+            var defaultCs = "Server = localhost; port = 3306; Database = monitoring-pn; user = root; Convert Zero Datetime = true;";
             var optionsBuilder = new DbContextOptionsBuilder<EformMonitoringPnDbContext>();
-            if (args.Any())
-            {
-                if (args.FirstOrDefault().ToLower().Contains("convert zero datetime"))
-                {
-                    optionsBuilder.UseMySql(args.FirstOrDefault());
-                }
-                else
-                {
-                    optionsBuilder.UseSqlServer(args.FirstOrDefault());
-                }
-            }
-            else
-            {
-                throw new ArgumentNullException($"Connection string not present");
-            }
-            
-//            optionsBuilder.UseSqlServer(@"data source=(LocalDb)\SharedInstance;Initial catalog=monitoring-pn-tests;Integrated Security=True");
-//            dotnet ef migrations add InitialCreate --project Microting.EformMonitoringBase --startup-project DBMigrator
-            optionsBuilder.UseLazyLoadingProxies();
+            optionsBuilder.UseMySql(args.Any() ? args[0]: defaultCs);
+            optionsBuilder.UseLazyLoadingProxies(true);
+
             return new EformMonitoringPnDbContext(optionsBuilder.Options);
+            // dotnet ef migrations add InitialCreate --project Microting.EformMonitoringBase --startup-project DBMigrator
         }
     }
 }
