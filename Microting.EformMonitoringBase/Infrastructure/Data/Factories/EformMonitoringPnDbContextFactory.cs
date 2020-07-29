@@ -24,6 +24,9 @@ SOFTWARE.
 
 // ReSharper disable PossibleNullReferenceException
 // ReSharper disable AssignNullToNotNullAttribute
+
+using Pomelo.EntityFrameworkCore.MySql.Infrastructure;
+
 namespace Microting.EformMonitoringBase.Infrastructure.Data.Factories
 {
     using System;
@@ -39,7 +42,10 @@ namespace Microting.EformMonitoringBase.Infrastructure.Data.Factories
         {
             var defaultCs = "Server = localhost; port = 3306; Database = monitoring-pn; user = root; Convert Zero Datetime = true;";
             var optionsBuilder = new DbContextOptionsBuilder<EformMonitoringPnDbContext>();
-            optionsBuilder.UseMySql(args.Any() ? args[0]: defaultCs);
+            optionsBuilder.UseMySql(args.Any() ? args[0] : defaultCs, mysqlOptions =>
+            {
+                mysqlOptions.ServerVersion(new Version(10, 4, 0), ServerType.MariaDb);
+            });
             optionsBuilder.UseLazyLoadingProxies(true);
 
             return new EformMonitoringPnDbContext(optionsBuilder.Options);
