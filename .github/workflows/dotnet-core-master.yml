@@ -38,6 +38,6 @@ jobs:
     - name: Build
       run: dotnet build --configuration Release --no-restore
     - name: Unit Tests
-      run: dotnet test --no-restore -c Release -v n Microting.EformMonitoringBase.Unit.Tests/Microting.EformMonitoringBase.Unit.Tests.csproj
+      run: dotnet test --no-restore -c Release -v n Microting.eFormMonitoringBase.Unit.Tests/Microting.eFormMonitoringBase.Unit.Tests.csproj
     - name: Integration Tests
       run: dotnet test --no-restore -c Release -v n Microting.EformMonitoringBase.Integration.Tests/Microting.EformMonitoringBase.Integration.Tests.csproj

@@ -40,7 +40,7 @@ jobs:
     - name: Build
       run: dotnet build --configuration Release --no-restore
     - name: Unit Tests
-      run: dotnet test --no-restore -c Release -v n Microting.EformMonitoringBase.Unit.Tests/Microting.EformMonitoringBase.Unit.Tests.csproj
+      run: dotnet test --no-restore -c Release -v n Microting.eFormMonitoringBase.Unit.Tests/Microting.eFormMonitoringBase.Unit.Tests.csproj
     - name: Pack
       run: dotnet pack Microting.EformMonitoringBase.sln -c Release -o ./artifacts -p:PackageVersion=${{ steps.get_version.outputs.VERSION }}
     - name: Push generated package to GitHub registry
