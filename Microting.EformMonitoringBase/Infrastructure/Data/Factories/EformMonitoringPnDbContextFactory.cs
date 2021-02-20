@@ -44,9 +44,8 @@ namespace Microting.EformMonitoringBase.Infrastructure.Data.Factories
             var optionsBuilder = new DbContextOptionsBuilder<EformMonitoringPnDbContext>();
             optionsBuilder.UseMySql(args.Any() ? args[0] : defaultCs, mysqlOptions =>
             {
-                mysqlOptions.ServerVersion(new Version(10, 4, 0), ServerType.MariaDb);
+                mysqlOptions.ServerVersion(new Version(10, 4, 0), ServerType.MariaDb).EnableRetryOnFailure();
             });
-            optionsBuilder.UseLazyLoadingProxies(true);
 
             return new EformMonitoringPnDbContext(optionsBuilder.Options);
             // dotnet ef migrations add InitialCreate --project Microting.EformMonitoringBase --startup-project DBMigrator

@@ -21,9 +21,11 @@ LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
 */
+
 using System;
 using System.Collections.Generic;
 using System.IO;
+using System.Reflection;
 using System.Runtime.InteropServices;
 using Microsoft.EntityFrameworkCore;
 using Microting.EformMonitoringBase.Infrastructure.Data;
@@ -50,17 +52,9 @@ namespace Microting.eFormMonitoringBase.Unit.Tests
         [SetUp]
         public void Setup()
         {
-            if (RuntimeInformation.IsOSPlatform(OSPlatform.Windows))
-            {
-                _connectionString = @"data source=(LocalDb)\SharedInstance;Initial catalog=monitoring-pn-tests;Integrated Security=true";
-            }
-            else
-            {
-                _connectionString = @"Server = localhost; port = 3306; Database = monitoring-pn-tests; user = root; password = secretpassword; Convert Zero Datetime = true;";
-            }
+            _connectionString = @"Server = localhost; port = 3306; Database = monitoring-pn-tests; user = root; password = secretpassword; Convert Zero Datetime = true;";
 
             GetContext(_connectionString);
-
 
             DbContext.Database.SetCommandTimeout(300);
 
@@ -87,44 +81,49 @@ namespace Microting.eFormMonitoringBase.Unit.Tests
 
         private void ClearDb()
         {
-            List<string> modelNames = new List<string>();
-            modelNames.Add("Rules");
-            modelNames.Add("RuleVersions");
-            modelNames.Add("Recipients");
-            modelNames.Add("PluginConfigurationValues");
-            modelNames.Add("PluginConfigurationValueVersions");
-            modelNames.Add("PluginPermissions");
-            modelNames.Add("PluginGroupPermissions");
+            List<string> modelNames = new List<string>
+            {
+                "Rules",
+                "RuleVersions",
+                "Recipients",
+                "PluginConfigurationValues",
+                "PluginConfigurationValueVersions",
+                "PluginPermissions",
+                "PluginGroupPermissions"
+            };
+            bool firstRunNotDone = true;
 
             foreach (var modelName in modelNames)
             {
                 try
                 {
-                    string sqlCmd;
-                    if (DbContext.Database.IsMySql())
+                    if (firstRunNotDone)
                     {
-                        sqlCmd = $"SET FOREIGN_KEY_CHECKS = 0;TRUNCATE `monitoring-pn-tests`.`{modelName}`";
+                        DbContext.Database.ExecuteSqlRaw(
+                            $"SET FOREIGN_KEY_CHECKS = 0;TRUNCATE `monitoring-pn-tests`.`{modelName}`");
                     }
-                    else
-                    {
-                        sqlCmd = $"DELETE FROM [{modelName}]";
-                    }
-                    DbContext.Database.ExecuteSqlCommand(sqlCmd);
                 }
                 catch (Exception ex)
                 {
-                    Console.WriteLine(ex.Message);
+                    if (ex.Message == "Unknown database 'monitoring-pn-tests'")
+                    {
+                        firstRunNotDone = false;
+                    }
+                    else
+                    {
+                        Console.WriteLine(ex.Message);
+                    }
                 }
             }
         }
-        private string path;
+        private string _path;
 
         private void ClearFile()
         {
-            path = System.Reflection.Assembly.GetExecutingAssembly().CodeBase;
-            path = System.IO.Path.GetDirectoryName(path).Replace(@"file:\", "");
+            _path = Assembly.GetExecutingAssembly().CodeBase;
+            _path = Path.GetDirectoryName(_path)?.Replace(@"file:\", "");
 
-            string picturePath = path + @"\output\dataFolder\picture\Deleted";
+            string picturePath = _path + @"\output\dataFolder\picture\Deleted";
 
             DirectoryInfo diPic = new DirectoryInfo(picturePath);
 
@@ -135,9 +134,10 @@ namespace Microting.eFormMonitoringBase.Unit.Tests
                     file.Delete();
                 }
             }
-            catch { }
-
-
+            catch
+            {
+                // ignored
+            }
         }
 
         protected virtual void DoSetup() { }

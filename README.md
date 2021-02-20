@@ -1,5 +1,8 @@
 # eform-monitoring-base
-![.NET Core](https://github.com/microting/eform-monitoring-base/workflows/.NET%20Core/badge.svg)
+[![.NET Core](https://github.com/microting/eform-monitoring-base/actions/workflows/dotnet-core.yml/badge.svg)](https://github.com/microting/eform-monitoring-base/actions/workflows/dotnet-core.yml)
+[![NuGet Badge](https://buildstats.info/nuget/Microting.InstallationCheckingBase)](https://www.nuget.org/packages/Microting.InstallationCheckingBase/)
+[![Maintainability](https://api.codeclimate.com/v1/badges/b1dda0d7be4c94ce5cb0/maintainability)](https://codeclimate.com/github/microting/eform-monitoring-base/maintainability)
+[![Codacy Badge](https://app.codacy.com/project/badge/Grade/8f8451b6d0a3412b80e25a95dbca9f55)](https://www.codacy.com/gh/microting/eform-monitoring-base/dashboard?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=microting/eform-monitoring-base&amp;utm_campaign=Badge_Grade)
 
 ## NOTICE! this is not a standalone project and needs to be used with eForm Angular Frontend.
 
