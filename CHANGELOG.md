@@ -1,5 +1,14 @@
 # Changelog
 
+## [v2.0.75](https://github.com/microting/eform-monitoring-base/tree/v2.0.75) (2021-02-24)
+
+[Full Changelog](https://github.com/microting/eform-monitoring-base/compare/v2.0.74...v2.0.75)
+
+**Implemented enhancements:**
+
+- Bump Microting.eFormApi.BasePn from 2.0.97 to 2.0.98 [\#37](https://github.com/microting/eform-monitoring-base/issues/37)
+- Bump Microting.eForm from 4.4.1 to 4.4.2 [\#36](https://github.com/microting/eform-monitoring-base/issues/36)
+
 ## [v2.0.74](https://github.com/microting/eform-monitoring-base/tree/v2.0.74) (2021-02-20)
 
 [Full Changelog](https://github.com/microting/eform-monitoring-base/compare/v2.0.73...v2.0.74)
