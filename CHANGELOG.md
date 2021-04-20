@@ -1,5 +1,14 @@
 # Changelog
 
+## [v2.0.92](https://github.com/microting/eform-monitoring-base/tree/v2.0.92) (2021-04-20)
+
+[Full Changelog](https://github.com/microting/eform-monitoring-base/compare/v2.0.91...v2.0.92)
+
+**Implemented enhancements:**
+
+- Bump Microting.eFormApi.BasePn from 2.0.128 to 2.0.129 [\#94](https://github.com/microting/eform-monitoring-base/issues/94)
+- Bump Microting.eForm from 4.4.37 to 4.4.38 [\#93](https://github.com/microting/eform-monitoring-base/issues/93)
+
 ## [v2.0.91](https://github.com/microting/eform-monitoring-base/tree/v2.0.91) (2021-04-19)
 
 [Full Changelog](https://github.com/microting/eform-monitoring-base/compare/v2.0.90...v2.0.91)
@@ -613,6 +622,7 @@
 **Merged pull requests:**
 
 - Updates for nullable item [\#9](https://github.com/microting/eform-monitoring-base/pull/9) ([Gid733](https://github.com/Gid733))
+- Permission updates [\#4](https://github.com/microting/eform-monitoring-base/pull/4) ([Gid733](https://github.com/Gid733))
 
 ## [v1.1.57](https://github.com/microting/eform-monitoring-base/tree/v1.1.57) (2020-03-03)
 
@@ -818,17 +828,13 @@
 
 [Full Changelog](https://github.com/microting/eform-monitoring-base/compare/v1.0.2...v1.0.3)
 
-**Merged pull requests:**
-
-- Permission updates [\#4](https://github.com/microting/eform-monitoring-base/pull/4) ([Gid733](https://github.com/Gid733))
-- Added permissions logic [\#3](https://github.com/microting/eform-monitoring-base/pull/3) ([Gid733](https://github.com/Gid733))
-
 ## [v1.0.2](https://github.com/microting/eform-monitoring-base/tree/v1.0.2) (2019-10-16)
 
 [Full Changelog](https://github.com/microting/eform-monitoring-base/compare/v1.0.1...v1.0.2)
 
 **Merged pull requests:**
 
+- Added permissions logic [\#3](https://github.com/microting/eform-monitoring-base/pull/3) ([Gid733](https://github.com/Gid733))
 - Updates [\#2](https://github.com/microting/eform-monitoring-base/pull/2) ([Gid733](https://github.com/Gid733))
 
 ## [v1.0.1](https://github.com/microting/eform-monitoring-base/tree/v1.0.1) (2019-10-09)
