@@ -1,5 +1,14 @@
 # Changelog
 
+## [v2.1.3](https://github.com/microting/eform-monitoring-base/tree/v2.1.3) (2021-04-30)
+
+[Full Changelog](https://github.com/microting/eform-monitoring-base/compare/v2.1.2...v2.1.3)
+
+**Implemented enhancements:**
+
+- Bump Microting.eFormApi.BasePn from 2.1.3 to 3.0.0 [\#108](https://github.com/microting/eform-monitoring-base/issues/108)
+- Bump Microting.eForm from 4.5.3 to 5.0.2 [\#107](https://github.com/microting/eform-monitoring-base/issues/107)
+
 ## [v2.1.2](https://github.com/microting/eform-monitoring-base/tree/v2.1.2) (2021-04-27)
 
 [Full Changelog](https://github.com/microting/eform-monitoring-base/compare/v2.1.1...v2.1.2)
@@ -138,6 +147,7 @@
 
 - Bump Microting.eFormApi.BasePn from 2.0.111 to 2.0.113 [\#71](https://github.com/microting/eform-monitoring-base/issues/71)
 - Bump Microting.eForm from 4.4.20 to 4.4.21 [\#70](https://github.com/microting/eform-monitoring-base/issues/70)
+- Bump Microting.eFormApi.BasePn from 2.0.109 to 2.0.110 [\#62](https://github.com/microting/eform-monitoring-base/issues/62)
 
 ## [v2.0.80](https://github.com/microting/eform-monitoring-base/tree/v2.0.80) (2021-04-06)
 
@@ -162,7 +172,6 @@
 
 **Implemented enhancements:**
 
-- Bump Microting.eFormApi.BasePn from 2.0.109 to 2.0.110 [\#62](https://github.com/microting/eform-monitoring-base/issues/62)
 - Bump Microting.eForm from 4.4.16 to 4.4.17 [\#61](https://github.com/microting/eform-monitoring-base/issues/61)
 
 ## [v2.0.77](https://github.com/microting/eform-monitoring-base/tree/v2.0.77) (2021-04-02)
@@ -186,6 +195,7 @@
 **Merged pull requests:**
 
 - Bump Microsoft.NET.Test.Sdk from 16.6.1 to 16.9.1 [\#35](https://github.com/microting/eform-monitoring-base/pull/35) ([dependabot-preview[bot]](https://github.com/apps/dependabot-preview))
+- Bump NUnit from 3.12.0 to 3.13.1 [\#25](https://github.com/microting/eform-monitoring-base/pull/25) ([dependabot-preview[bot]](https://github.com/apps/dependabot-preview))
 
 ## [v2.0.75](https://github.com/microting/eform-monitoring-base/tree/v2.0.75) (2021-02-24)
 
@@ -835,7 +845,6 @@
 
 **Merged pull requests:**
 
-- Bump NUnit from 3.12.0 to 3.13.1 [\#25](https://github.com/microting/eform-monitoring-base/pull/25) ([dependabot-preview[bot]](https://github.com/apps/dependabot-preview))
 - Add plugin permission version [\#6](https://github.com/microting/eform-monitoring-base/pull/6) ([emleonid](https://github.com/emleonid))
 
 ## [v1.1.14](https://github.com/microting/eform-monitoring-base/tree/v1.1.14) (2019-10-29)
