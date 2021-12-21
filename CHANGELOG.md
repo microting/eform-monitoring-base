@@ -1,5 +1,14 @@
 # Changelog
 
+## [v3.0.69](https://github.com/microting/eform-monitoring-base/tree/v3.0.69) (2021-12-21)
+
+[Full Changelog](https://github.com/microting/eform-monitoring-base/compare/v3.0.68...v3.0.69)
+
+**Implemented enhancements:**
+
+- Bump Microting.eFormApi.BasePn from 3.1.12 to 3.1.13 [\#277](https://github.com/microting/eform-monitoring-base/issues/277)
+- Bump Microting.eForm from 5.3.17 to 5.3.19 [\#276](https://github.com/microting/eform-monitoring-base/issues/276)
+
 ## [v3.0.68](https://github.com/microting/eform-monitoring-base/tree/v3.0.68) (2021-12-19)
 
 [Full Changelog](https://github.com/microting/eform-monitoring-base/compare/v3.0.67...v3.0.68)
@@ -282,6 +291,7 @@
 
 **Implemented enhancements:**
 
+- Bump Microting.eFormApi.BasePn from 3.0.41 to 3.0.42 [\#211](https://github.com/microting/eform-monitoring-base/issues/211)
 - Bump Microting.eForm from 5.2.31 to 5.2.32 [\#210](https://github.com/microting/eform-monitoring-base/issues/210)
 
 ## [v3.0.32](https://github.com/microting/eform-monitoring-base/tree/v3.0.32) (2021-08-11)
@@ -299,7 +309,6 @@
 
 **Implemented enhancements:**
 
-- Bump Microting.eFormApi.BasePn from 3.0.41 to 3.0.42 [\#211](https://github.com/microting/eform-monitoring-base/issues/211)
 - Bump Microsoft.EntityFrameworkCore.Relational from 5.0.8 to 5.0.9 [\#207](https://github.com/microting/eform-monitoring-base/issues/207)
 - Bump Microsoft.EntityFrameworkCore.Design from 5.0.8 to 5.0.9 [\#206](https://github.com/microting/eform-monitoring-base/issues/206)
 - Bump Microsoft.EntityFrameworkCore from 5.0.8 to 5.0.9 [\#205](https://github.com/microting/eform-monitoring-base/issues/205)
@@ -348,7 +357,6 @@
 
 **Implemented enhancements:**
 
-- Bump Microting.eFormApi.BasePn from 3.0.31 to 3.0.33 [\#192](https://github.com/microting/eform-monitoring-base/issues/192)
 - Bump Microting.eForm from 5.2.18 to 5.2.21 [\#191](https://github.com/microting/eform-monitoring-base/issues/191)
 
 ## [v3.0.25](https://github.com/microting/eform-monitoring-base/tree/v3.0.25) (2021-07-22)
@@ -357,6 +365,7 @@
 
 **Implemented enhancements:**
 
+- Bump Microting.eFormApi.BasePn from 3.0.31 to 3.0.33 [\#192](https://github.com/microting/eform-monitoring-base/issues/192)
 - Bump Microting.eFormApi.BasePn from 3.0.30 to 3.0.31 [\#189](https://github.com/microting/eform-monitoring-base/issues/189)
 - Bump Microting.eForm from 5.2.17 to 5.2.18 [\#188](https://github.com/microting/eform-monitoring-base/issues/188)
 
@@ -394,7 +403,6 @@
 
 - Bump NUnit3TestAdapter from 3.17.0 to 4.0.0 [\#155](https://github.com/microting/eform-monitoring-base/pull/155) ([dependabot[bot]](https://github.com/apps/dependabot))
 - Bump Microsoft.NET.Test.Sdk from 16.9.4 to 16.10.0 [\#141](https://github.com/microting/eform-monitoring-base/pull/141) ([dependabot[bot]](https://github.com/apps/dependabot))
-- Bump NUnit from 3.13.1 to 3.13.2 [\#103](https://github.com/microting/eform-monitoring-base/pull/103) ([dependabot-preview[bot]](https://github.com/apps/dependabot-preview))
 
 ## [v3.0.21](https://github.com/microting/eform-monitoring-base/tree/v3.0.21) (2021-07-05)
 
@@ -418,6 +426,7 @@
 
 **Implemented enhancements:**
 
+- Bump Microting.eFormApi.BasePn from 3.0.20 to 3.0.24 [\#170](https://github.com/microting/eform-monitoring-base/issues/170)
 - Bump Microting.eForm from 5.2.9 to 5.2.13 [\#169](https://github.com/microting/eform-monitoring-base/issues/169)
 
 ## [v3.0.18](https://github.com/microting/eform-monitoring-base/tree/v3.0.18) (2021-06-09)
@@ -426,12 +435,10 @@
 
 **Implemented enhancements:**
 
-- Bump Microting.eFormApi.BasePn from 3.0.20 to 3.0.24 [\#170](https://github.com/microting/eform-monitoring-base/issues/170)
 - Bump Microsoft.EntityFrameworkCore.Relational from 5.0.6 to 5.0.7 [\#163](https://github.com/microting/eform-monitoring-base/issues/163)
 - Bump Microsoft.EntityFrameworkCore.Design from 5.0.6 to 5.0.7 [\#162](https://github.com/microting/eform-monitoring-base/issues/162)
 - Bump Microsoft.EntityFrameworkCore from 5.0.6 to 5.0.7 [\#161](https://github.com/microting/eform-monitoring-base/issues/161)
 - Bump Microting.eFormApi.BasePn from 3.0.19 to 3.0.20 [\#160](https://github.com/microting/eform-monitoring-base/issues/160)
-- Bump Microting.eForm from 5.2.8 to 5.2.9 [\#159](https://github.com/microting/eform-monitoring-base/issues/159)
 
 ## [v3.0.17](https://github.com/microting/eform-monitoring-base/tree/v3.0.17) (2021-06-07)
 
@@ -447,7 +454,7 @@
 
 **Implemented enhancements:**
 
-- Bump Microting.eFormApi.BasePn from 3.0.17 to 3.0.18 [\#153](https://github.com/microting/eform-monitoring-base/issues/153)
+- Bump Microting.eForm from 5.2.8 to 5.2.9 [\#159](https://github.com/microting/eform-monitoring-base/issues/159)
 
 ## [v3.0.15](https://github.com/microting/eform-monitoring-base/tree/v3.0.15) (2021-06-03)
 
@@ -464,6 +471,7 @@
 
 **Implemented enhancements:**
 
+- Bump Microting.eFormApi.BasePn from 3.0.17 to 3.0.18 [\#153](https://github.com/microting/eform-monitoring-base/issues/153)
 - Bump Microting.eFormApi.BasePn from 3.0.14 to 3.0.16 [\#149](https://github.com/microting/eform-monitoring-base/issues/149)
 - Bump Microting.eForm from 5.2.5 to 5.2.7 [\#148](https://github.com/microting/eform-monitoring-base/issues/148)
 
@@ -483,6 +491,7 @@
 
 - Bump Microting.eFormApi.BasePn from 3.0.13 to 3.0.14 [\#145](https://github.com/microting/eform-monitoring-base/issues/145)
 - Bump Microting.eForm from 5.2.3 to 5.2.4 [\#144](https://github.com/microting/eform-monitoring-base/issues/144)
+- Bump Microting.eFormApi.BasePn from 3.0.9 to 3.0.10 [\#132](https://github.com/microting/eform-monitoring-base/issues/132)
 
 ## [v3.0.11](https://github.com/microting/eform-monitoring-base/tree/v3.0.11) (2021-05-26)
 
@@ -496,6 +505,7 @@
 **Merged pull requests:**
 
 - Upgrade to GitHub-native Dependabot [\#104](https://github.com/microting/eform-monitoring-base/pull/104) ([dependabot-preview[bot]](https://github.com/apps/dependabot-preview))
+- Bump NUnit from 3.13.1 to 3.13.2 [\#103](https://github.com/microting/eform-monitoring-base/pull/103) ([dependabot-preview[bot]](https://github.com/apps/dependabot-preview))
 - Bump Microsoft.NET.Test.Sdk from 16.9.1 to 16.9.4 [\#57](https://github.com/microting/eform-monitoring-base/pull/57) ([dependabot-preview[bot]](https://github.com/apps/dependabot-preview))
 
 ## [v3.0.10](https://github.com/microting/eform-monitoring-base/tree/v3.0.10) (2021-05-19)
@@ -516,7 +526,6 @@
 
 **Implemented enhancements:**
 
-- Bump Microting.eFormApi.BasePn from 3.0.9 to 3.0.10 [\#132](https://github.com/microting/eform-monitoring-base/issues/132)
 - Bump Microting.eForm from 5.1.5 to 5.2.0 [\#131](https://github.com/microting/eform-monitoring-base/issues/131)
 
 ## [v3.0.8](https://github.com/microting/eform-monitoring-base/tree/v3.0.8) (2021-05-11)
@@ -534,7 +543,6 @@
 
 **Implemented enhancements:**
 
-- Bump Microting.eFormApi.BasePn from 3.0.7 to 3.0.8 [\#125](https://github.com/microting/eform-monitoring-base/issues/125)
 - Bump Microting.eForm from 5.1.3 to 5.1.4 [\#124](https://github.com/microting/eform-monitoring-base/issues/124)
 
 ## [v3.0.6](https://github.com/microting/eform-monitoring-base/tree/v3.0.6) (2021-05-06)
@@ -552,6 +560,7 @@
 
 **Implemented enhancements:**
 
+- Bump Microting.eFormApi.BasePn from 3.0.7 to 3.0.8 [\#125](https://github.com/microting/eform-monitoring-base/issues/125)
 - Bump Microting.eFormApi.BasePn from 3.0.5 to 3.0.6 [\#119](https://github.com/microting/eform-monitoring-base/issues/119)
 - Bump Microting.eForm from 5.1.1 to 5.1.2 [\#118](https://github.com/microting/eform-monitoring-base/issues/118)
 
@@ -687,7 +696,6 @@
 
 - Bump Microting.eFormApi.BasePn from 2.0.120 to 2.0.122 [\#84](https://github.com/microting/eform-monitoring-base/issues/84)
 - Bump Microting.eForm from 4.4.29 to 4.4.31 [\#83](https://github.com/microting/eform-monitoring-base/issues/83)
-- Bump Microting.eFormApi.BasePn from 2.0.116 to 2.0.117 [\#78](https://github.com/microting/eform-monitoring-base/issues/78)
 
 ## [v2.0.86](https://github.com/microting/eform-monitoring-base/tree/v2.0.86) (2021-04-13)
 
@@ -713,6 +721,7 @@
 
 **Implemented enhancements:**
 
+- Bump Microting.eFormApi.BasePn from 2.0.116 to 2.0.117 [\#78](https://github.com/microting/eform-monitoring-base/issues/78)
 - Bump Microting.eForm from 4.4.24 to 4.4.26 [\#77](https://github.com/microting/eform-monitoring-base/issues/77)
 
 ## [v2.0.83](https://github.com/microting/eform-monitoring-base/tree/v2.0.83) (2021-04-08)
@@ -722,6 +731,7 @@
 **Implemented enhancements:**
 
 - Bump Microting.eFormApi.BasePn from 2.0.115 to 2.0.116 [\#76](https://github.com/microting/eform-monitoring-base/issues/76)
+- Bump Microting.eForm from 4.4.23 to 4.4.24 [\#75](https://github.com/microting/eform-monitoring-base/issues/75)
 
 ## [v2.0.82](https://github.com/microting/eform-monitoring-base/tree/v2.0.82) (2021-04-08)
 
@@ -738,7 +748,6 @@
 
 **Implemented enhancements:**
 
-- Bump Microting.eForm from 4.4.23 to 4.4.24 [\#75](https://github.com/microting/eform-monitoring-base/issues/75)
 - Bump Microting.eFormApi.BasePn from 2.0.111 to 2.0.113 [\#71](https://github.com/microting/eform-monitoring-base/issues/71)
 - Bump Microting.eForm from 4.4.20 to 4.4.21 [\#70](https://github.com/microting/eform-monitoring-base/issues/70)
 
@@ -767,7 +776,6 @@
 
 - Bump Microting.eFormApi.BasePn from 2.0.109 to 2.0.110 [\#62](https://github.com/microting/eform-monitoring-base/issues/62)
 - Bump Microting.eForm from 4.4.16 to 4.4.17 [\#61](https://github.com/microting/eform-monitoring-base/issues/61)
-- Bump Microting.eFormApi.BasePn from 2.0.96 to 2.0.97 [\#34](https://github.com/microting/eform-monitoring-base/issues/34)
 
 ## [v2.0.77](https://github.com/microting/eform-monitoring-base/tree/v2.0.77) (2021-04-02)
 
@@ -807,6 +815,7 @@
 
 **Implemented enhancements:**
 
+- Bump Microting.eFormApi.BasePn from 2.0.96 to 2.0.97 [\#34](https://github.com/microting/eform-monitoring-base/issues/34)
 - Bump Microting.eForm from 4.3.18 to 4.4.1 [\#33](https://github.com/microting/eform-monitoring-base/issues/33)
 
 ## [v2.0.73](https://github.com/microting/eform-monitoring-base/tree/v2.0.73) (2021-02-20)
