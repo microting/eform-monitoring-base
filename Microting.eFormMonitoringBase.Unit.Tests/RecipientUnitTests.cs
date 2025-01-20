@@ -65,11 +65,11 @@ namespace Microting.eFormMonitoringBase.Unit.Tests
             Recipient dbRecipient = DbContext.Recipients.AsNoTracking().First();
             List<Recipient> recipientList = DbContext.Recipients.AsNoTracking().ToList();
             //Assert
-            Assert.NotNull(dbRecipient);
+            Assert.That(dbRecipient, Is.Not.Null);
 
-            Assert.AreEqual(1, recipientList.Count);
-            Assert.AreEqual(recipient.Email, dbRecipient.Email);
-            Assert.AreEqual(recipient.NotificationRuleId, dbRecipient.NotificationRuleId);
+            Assert.That(recipientList.Count, Is.EqualTo(1));
+            Assert.That(dbRecipient.Email, Is.EqualTo(recipient.Email));
+            Assert.That(dbRecipient.NotificationRuleId, Is.EqualTo(recipient.NotificationRuleId));
         }
         [Test]
         public async Task Recipient_Delete_DoesDelete()
@@ -101,12 +101,12 @@ namespace Microting.eFormMonitoringBase.Unit.Tests
             Recipient dbRecipient = DbContext.Recipients.AsNoTracking().First();
             List<Recipient> recipientList = DbContext.Recipients.AsNoTracking().ToList();
             //Assert
-            Assert.NotNull(dbRecipient);
+            Assert.That(dbRecipient, Is.Not.Null);
 
-            Assert.AreEqual(1, recipientList.Count);
-            Assert.AreEqual(recipient.Email, dbRecipient.Email);
-            Assert.AreEqual(recipient.NotificationRuleId, dbRecipient.NotificationRuleId);
-            Assert.AreEqual(Constants.WorkflowStates.Removed, dbRecipient.WorkflowState);
+            Assert.That(recipientList.Count, Is.EqualTo(1));
+            Assert.That(dbRecipient.Email, Is.EqualTo(recipient.Email));
+            Assert.That(dbRecipient.NotificationRuleId, Is.EqualTo(recipient.NotificationRuleId));
+            Assert.That(dbRecipient.WorkflowState, Is.EqualTo(Constants.WorkflowStates.Removed));
         }
     }
 }

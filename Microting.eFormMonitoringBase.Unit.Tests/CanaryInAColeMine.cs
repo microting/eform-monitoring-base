@@ -31,7 +31,7 @@ namespace Microting.eFormMonitoringBase.Unit.Tests
         [Test]
         public void CanPeep()
         {
-            Assert.True(true);
+            Assert.That(true);
         }
     }
 }

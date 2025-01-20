@@ -56,17 +56,17 @@ namespace Microting.eFormMonitoringBase.Unit.Tests
             NotificationRule dbNotificationRule = DbContext.Rules.AsNoTracking().First();
             List<NotificationRule> notificationRuleList = DbContext.Rules.AsNoTracking().ToList();
             //Assert
-            Assert.NotNull(dbNotificationRule);
+            Assert.That(dbNotificationRule, Is.Not.Null);
 
-            Assert.AreEqual(1, notificationRuleList.Count);
+            Assert.That(notificationRuleList.Count, Is.EqualTo(1));
 
-            Assert.AreEqual(rule.Data, dbNotificationRule.Data);
-            Assert.AreEqual(rule.Subject, dbNotificationRule.Subject);
-            Assert.AreEqual(rule.Text, dbNotificationRule.Text);
-            Assert.AreEqual(rule.CheckListId, dbNotificationRule.CheckListId);
-            Assert.AreEqual(rule.DataItemId, dbNotificationRule.DataItemId);
-            Assert.AreEqual(rule.AttachReport, dbNotificationRule.AttachReport);
-            Assert.AreEqual(rule.RuleType, dbNotificationRule.RuleType);
+            Assert.That(dbNotificationRule.Data, Is.EqualTo(rule.Data));
+            Assert.That(dbNotificationRule.Subject, Is.EqualTo(rule.Subject));
+            Assert.That(dbNotificationRule.Text, Is.EqualTo(rule.Text));
+            Assert.That(dbNotificationRule.CheckListId, Is.EqualTo(rule.CheckListId));
+            Assert.That(dbNotificationRule.DataItemId, Is.EqualTo(rule.DataItemId));
+            Assert.That(dbNotificationRule.AttachReport, Is.EqualTo(rule.AttachReport));
+            Assert.That(dbNotificationRule.RuleType, Is.EqualTo(rule.RuleType));
         }
         [Test]
         public async Task NotificationRule_Save_DoesSave_WRuleTypeCheckBox()
@@ -88,17 +88,17 @@ namespace Microting.eFormMonitoringBase.Unit.Tests
             NotificationRule dbNotificationRule = DbContext.Rules.AsNoTracking().First();
             List<NotificationRule> notificationRuleList = DbContext.Rules.AsNoTracking().ToList();
             //Assert
-            Assert.NotNull(dbNotificationRule);
+            Assert.That(dbNotificationRule, Is.Not.Null);
 
-            Assert.AreEqual(1, notificationRuleList.Count);
+            Assert.That(notificationRuleList.Count, Is.EqualTo(1));
 
-            Assert.AreEqual(rule.Data, dbNotificationRule.Data);
-            Assert.AreEqual(rule.Subject, dbNotificationRule.Subject);
-            Assert.AreEqual(rule.Text, dbNotificationRule.Text);
-            Assert.AreEqual(rule.CheckListId, dbNotificationRule.CheckListId);
-            Assert.AreEqual(rule.DataItemId, dbNotificationRule.DataItemId);
-            Assert.AreEqual(rule.AttachReport, dbNotificationRule.AttachReport);
-            Assert.AreEqual(rule.RuleType, dbNotificationRule.RuleType);
+            Assert.That(dbNotificationRule.Data, Is.EqualTo(rule.Data));
+            Assert.That(dbNotificationRule.Subject, Is.EqualTo(rule.Subject));
+            Assert.That(dbNotificationRule.Text, Is.EqualTo(rule.Text));
+            Assert.That(dbNotificationRule.CheckListId, Is.EqualTo(rule.CheckListId));
+            Assert.That(dbNotificationRule.DataItemId, Is.EqualTo(rule.DataItemId));
+            Assert.That(dbNotificationRule.AttachReport, Is.EqualTo(rule.AttachReport));
+            Assert.That(dbNotificationRule.RuleType, Is.EqualTo(rule.RuleType));
         }
         [Test]
         public async Task NotificationRule_Save_DoesSave_WRuleTypeSelect()
@@ -120,17 +120,17 @@ namespace Microting.eFormMonitoringBase.Unit.Tests
             NotificationRule dbNotificationRule = DbContext.Rules.AsNoTracking().First();
             List<NotificationRule> notificationRuleList = DbContext.Rules.AsNoTracking().ToList();
             //Assert
-            Assert.NotNull(dbNotificationRule);
+            Assert.That(dbNotificationRule, Is.Not.Null);
 
-            Assert.AreEqual(1, notificationRuleList.Count);
+            Assert.That(notificationRuleList.Count, Is.EqualTo(1));
 
-            Assert.AreEqual(rule.Data, dbNotificationRule.Data);
-            Assert.AreEqual(rule.Subject, dbNotificationRule.Subject);
-            Assert.AreEqual(rule.Text, dbNotificationRule.Text);
-            Assert.AreEqual(rule.CheckListId, dbNotificationRule.CheckListId);
-            Assert.AreEqual(rule.DataItemId, dbNotificationRule.DataItemId);
-            Assert.AreEqual(rule.AttachReport, dbNotificationRule.AttachReport);
-            Assert.AreEqual(rule.RuleType, dbNotificationRule.RuleType);
+            Assert.That(dbNotificationRule.Data, Is.EqualTo(rule.Data));
+            Assert.That(dbNotificationRule.Subject, Is.EqualTo(rule.Subject));
+            Assert.That(dbNotificationRule.Text, Is.EqualTo(rule.Text));
+            Assert.That(dbNotificationRule.CheckListId, Is.EqualTo(rule.CheckListId));
+            Assert.That(dbNotificationRule.DataItemId, Is.EqualTo(rule.DataItemId));
+            Assert.That(dbNotificationRule.AttachReport, Is.EqualTo(rule.AttachReport));
+            Assert.That(dbNotificationRule.RuleType, Is.EqualTo(rule.RuleType));
         }
          [Test]
         public async Task NotificationRule_Update_DoesUpdate_WRuleTypeCheckBox()
@@ -168,18 +168,18 @@ namespace Microting.eFormMonitoringBase.Unit.Tests
             List<NotificationRule> notificationRuleList = DbContext.Rules.AsNoTracking().ToList();
             List<NotificationRuleVersion> notificationRuleVersionList = DbContext.RuleVersions.AsNoTracking().ToList();
             //Assert
-            Assert.NotNull(dbNotificationRule);
+            Assert.That(dbNotificationRule, Is.Not.Null);
 
-            Assert.AreEqual(1, notificationRuleList.Count);
-            Assert.AreEqual(2, notificationRuleVersionList.Count);
+            Assert.That(notificationRuleList.Count, Is.EqualTo(1));
+            Assert.That(notificationRuleVersionList.Count, Is.EqualTo(2));
 
-            Assert.AreEqual(newData, dbNotificationRule.Data);
-            Assert.AreEqual(newSubject, dbNotificationRule.Subject);
-            Assert.AreEqual(newText, dbNotificationRule.Text);
-            Assert.AreEqual(newChecklistId, dbNotificationRule.CheckListId);
-            Assert.AreEqual(newDataItemId, dbNotificationRule.DataItemId);
-            Assert.AreEqual(newAttachReport, dbNotificationRule.AttachReport);
-            Assert.AreEqual(RuleType.CheckBox, dbNotificationRule.RuleType);
+            Assert.That(dbNotificationRule.Data, Is.EqualTo(newData));
+            Assert.That(dbNotificationRule.Subject, Is.EqualTo(newSubject));
+            Assert.That(dbNotificationRule.Text, Is.EqualTo(newText));
+            Assert.That(dbNotificationRule.CheckListId, Is.EqualTo(newChecklistId));
+            Assert.That(dbNotificationRule.DataItemId, Is.EqualTo(newDataItemId));
+            Assert.That(dbNotificationRule.AttachReport, Is.EqualTo(newAttachReport));
+            Assert.That(dbNotificationRule.RuleType, Is.EqualTo(RuleType.CheckBox));
 
         }
         [Test]
@@ -218,18 +218,18 @@ namespace Microting.eFormMonitoringBase.Unit.Tests
             List<NotificationRule> notificationRuleList = DbContext.Rules.AsNoTracking().ToList();
             List<NotificationRuleVersion> notificationRuleVersionList = DbContext.RuleVersions.AsNoTracking().ToList();
             //Assert
-            Assert.NotNull(dbNotificationRule);
+            Assert.That(dbNotificationRule, Is.Not.Null);
 
-            Assert.AreEqual(1, notificationRuleList.Count);
-            Assert.AreEqual(2, notificationRuleVersionList.Count);
+            Assert.That(notificationRuleList.Count, Is.EqualTo(1));
+            Assert.That(notificationRuleVersionList.Count, Is.EqualTo(2));
 
-            Assert.AreEqual(newData, dbNotificationRule.Data);
-            Assert.AreEqual(newSubject, dbNotificationRule.Subject);
-            Assert.AreEqual(newText, dbNotificationRule.Text);
-            Assert.AreEqual(newChecklistId, dbNotificationRule.CheckListId);
-            Assert.AreEqual(newDataItemId, dbNotificationRule.DataItemId);
-            Assert.AreEqual(newAttachReport, dbNotificationRule.AttachReport);
-            Assert.AreEqual(RuleType.Select, dbNotificationRule.RuleType);
+            Assert.That(dbNotificationRule.Data, Is.EqualTo(newData));
+            Assert.That(dbNotificationRule.Subject, Is.EqualTo(newSubject));
+            Assert.That(dbNotificationRule.Text, Is.EqualTo(newText));
+            Assert.That(dbNotificationRule.CheckListId, Is.EqualTo(newChecklistId));
+            Assert.That(dbNotificationRule.DataItemId, Is.EqualTo(newDataItemId));
+            Assert.That(dbNotificationRule.AttachReport, Is.EqualTo(newAttachReport));
+            Assert.That(dbNotificationRule.RuleType, Is.EqualTo(RuleType.Select));
         }
         [Test]
         public async Task NotificationRule_Update_DoesUpdate_WRuleTypeNumber()
@@ -267,18 +267,18 @@ namespace Microting.eFormMonitoringBase.Unit.Tests
             List<NotificationRule> notificationRuleList = DbContext.Rules.AsNoTracking().ToList();
             List<NotificationRuleVersion> notificationRuleVersionList = DbContext.RuleVersions.AsNoTracking().ToList();
             //Assert
-            Assert.NotNull(dbNotificationRule);
+            Assert.That(dbNotificationRule, Is.Not.Null);
 
-            Assert.AreEqual(1, notificationRuleList.Count);
-            Assert.AreEqual(2, notificationRuleVersionList.Count);
+            Assert.That(notificationRuleList.Count, Is.EqualTo(1));
+            Assert.That(notificationRuleVersionList.Count, Is.EqualTo(2));
 
-            Assert.AreEqual(newData, dbNotificationRule.Data);
-            Assert.AreEqual(newSubject, dbNotificationRule.Subject);
-            Assert.AreEqual(newText, dbNotificationRule.Text);
-            Assert.AreEqual(newChecklistId, dbNotificationRule.CheckListId);
-            Assert.AreEqual(newDataItemId, dbNotificationRule.DataItemId);
-            Assert.AreEqual(newAttachReport, dbNotificationRule.AttachReport);
-            Assert.AreEqual(RuleType.Number, dbNotificationRule.RuleType);
+            Assert.That(dbNotificationRule.Data, Is.EqualTo(newData));
+            Assert.That(dbNotificationRule.Subject, Is.EqualTo(newSubject));
+            Assert.That(dbNotificationRule.Text, Is.EqualTo(newText));
+            Assert.That(dbNotificationRule.CheckListId, Is.EqualTo(newChecklistId));
+            Assert.That(dbNotificationRule.DataItemId, Is.EqualTo(newDataItemId));
+            Assert.That(dbNotificationRule.AttachReport, Is.EqualTo(newAttachReport));
+            Assert.That(dbNotificationRule.RuleType, Is.EqualTo(RuleType.Number));
         }
         [Test]
         public async Task NotificationRule_Delete_DoesDelete_WRuleTypeNumber()
@@ -302,19 +302,19 @@ namespace Microting.eFormMonitoringBase.Unit.Tests
             List<NotificationRule> notificationRuleList = DbContext.Rules.AsNoTracking().ToList();
             List<NotificationRuleVersion> notificationRuleVersionList = DbContext.RuleVersions.AsNoTracking().ToList();
             //Assert
-            Assert.NotNull(dbNotificationRule);
+            Assert.That(dbNotificationRule, Is.Not.Null);
 
-            Assert.AreEqual(1, notificationRuleList.Count);
-            Assert.AreEqual(2, notificationRuleVersionList.Count);
+            Assert.That(notificationRuleList.Count, Is.EqualTo(1));
+            Assert.That(notificationRuleVersionList.Count, Is.EqualTo(2));
 
-            Assert.AreEqual(rule.Data, dbNotificationRule.Data);
-            Assert.AreEqual(rule.Subject, dbNotificationRule.Subject);
-            Assert.AreEqual(rule.Text, dbNotificationRule.Text);
-            Assert.AreEqual(rule.CheckListId, dbNotificationRule.CheckListId);
-            Assert.AreEqual(rule.DataItemId, dbNotificationRule.DataItemId);
-            Assert.AreEqual(rule.AttachReport, dbNotificationRule.AttachReport);
-            Assert.AreEqual(rule.RuleType, dbNotificationRule.RuleType);
-            Assert.AreEqual(Constants.WorkflowStates.Removed, dbNotificationRule.WorkflowState);
+            Assert.That(dbNotificationRule.Data, Is.EqualTo(rule.Data));
+            Assert.That(dbNotificationRule.Subject, Is.EqualTo(rule.Subject));
+            Assert.That(dbNotificationRule.Text, Is.EqualTo(rule.Text));
+            Assert.That(dbNotificationRule.CheckListId, Is.EqualTo(rule.CheckListId));
+            Assert.That(dbNotificationRule.DataItemId, Is.EqualTo(rule.DataItemId));
+            Assert.That(dbNotificationRule.AttachReport, Is.EqualTo(rule.AttachReport));
+            Assert.That(dbNotificationRule.RuleType, Is.EqualTo(rule.RuleType));
+            Assert.That(dbNotificationRule.WorkflowState, Is.EqualTo(Constants.WorkflowStates.Removed));
         }
         [Test]
         public async Task NotificationRule_Delete_DoesDelete_WRuleTypeCheckBox()
@@ -338,19 +338,19 @@ namespace Microting.eFormMonitoringBase.Unit.Tests
             List<NotificationRule> notificationRuleList = DbContext.Rules.AsNoTracking().ToList();
             List<NotificationRuleVersion> notificationRuleVersionList = DbContext.RuleVersions.AsNoTracking().ToList();
             //Assert
-            Assert.NotNull(dbNotificationRule);
+            Assert.That(dbNotificationRule, Is.Not.Null);
 
-            Assert.AreEqual(1, notificationRuleList.Count);
-            Assert.AreEqual(2, notificationRuleVersionList.Count);
+            Assert.That(notificationRuleList.Count, Is.EqualTo(1));
+            Assert.That(notificationRuleVersionList.Count, Is.EqualTo(2));
 
-            Assert.AreEqual(rule.Data, dbNotificationRule.Data);
-            Assert.AreEqual(rule.Subject, dbNotificationRule.Subject);
-            Assert.AreEqual(rule.Text, dbNotificationRule.Text);
-            Assert.AreEqual(rule.CheckListId, dbNotificationRule.CheckListId);
-            Assert.AreEqual(rule.DataItemId, dbNotificationRule.DataItemId);
-            Assert.AreEqual(rule.AttachReport, dbNotificationRule.AttachReport);
-            Assert.AreEqual(rule.RuleType, dbNotificationRule.RuleType);
-            Assert.AreEqual(Constants.WorkflowStates.Removed, dbNotificationRule.WorkflowState);
+            Assert.That(dbNotificationRule.Data, Is.EqualTo(rule.Data));
+            Assert.That(dbNotificationRule.Subject, Is.EqualTo(rule.Subject));
+            Assert.That(dbNotificationRule.Text, Is.EqualTo(rule.Text));
+            Assert.That(dbNotificationRule.CheckListId, Is.EqualTo(rule.CheckListId));
+            Assert.That(dbNotificationRule.DataItemId, Is.EqualTo(rule.DataItemId));
+            Assert.That(dbNotificationRule.AttachReport, Is.EqualTo(rule.AttachReport));
+            Assert.That(dbNotificationRule.RuleType, Is.EqualTo(rule.RuleType));
+            Assert.That(dbNotificationRule.WorkflowState, Is.EqualTo(Constants.WorkflowStates.Removed));
         }
         [Test]
         public async Task NotificationRule_Delete_DoesDelete_WRuleTypeSelect()
@@ -375,19 +375,19 @@ namespace Microting.eFormMonitoringBase.Unit.Tests
             List<NotificationRule> notificationRuleList = DbContext.Rules.AsNoTracking().ToList();
             List<NotificationRuleVersion> notificationRuleVersionList = DbContext.RuleVersions.AsNoTracking().ToList();
             //Assert
-            Assert.NotNull(dbNotificationRule);
+            Assert.That(dbNotificationRule, Is.Not.Null);
 
-            Assert.AreEqual(1, notificationRuleList.Count);
-            Assert.AreEqual(2, notificationRuleVersionList.Count);
+            Assert.That(notificationRuleList.Count, Is.EqualTo(1));
+            Assert.That(notificationRuleVersionList.Count, Is.EqualTo(2));
 
-            Assert.AreEqual(rule.Data, dbNotificationRule.Data);
-            Assert.AreEqual(rule.Subject, dbNotificationRule.Subject);
-            Assert.AreEqual(rule.Text, dbNotificationRule.Text);
-            Assert.AreEqual(rule.CheckListId, dbNotificationRule.CheckListId);
-            Assert.AreEqual(rule.DataItemId, dbNotificationRule.DataItemId);
-            Assert.AreEqual(rule.AttachReport, dbNotificationRule.AttachReport);
-            Assert.AreEqual(rule.RuleType, dbNotificationRule.RuleType);
-            Assert.AreEqual(Constants.WorkflowStates.Removed, dbNotificationRule.WorkflowState);
+            Assert.That(dbNotificationRule.Data, Is.EqualTo(rule.Data));
+            Assert.That(dbNotificationRule.Subject, Is.EqualTo(rule.Subject));
+            Assert.That(dbNotificationRule.Text, Is.EqualTo(rule.Text));
+            Assert.That(dbNotificationRule.CheckListId, Is.EqualTo(rule.CheckListId));
+            Assert.That(dbNotificationRule.DataItemId, Is.EqualTo(rule.DataItemId));
+            Assert.That(dbNotificationRule.AttachReport, Is.EqualTo(rule.AttachReport));
+            Assert.That(dbNotificationRule.RuleType, Is.EqualTo(rule.RuleType));
+            Assert.That(dbNotificationRule.WorkflowState, Is.EqualTo(Constants.WorkflowStates.Removed));
         }
     }
 }
