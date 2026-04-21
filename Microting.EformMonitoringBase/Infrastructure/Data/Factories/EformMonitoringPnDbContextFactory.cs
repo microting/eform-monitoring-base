@@ -25,7 +25,7 @@ SOFTWARE.
 // ReSharper disable PossibleNullReferenceException
 // ReSharper disable AssignNullToNotNullAttribute
 
-using Pomelo.EntityFrameworkCore.MySql.Infrastructure;
+using Microting.EntityFrameworkCore.MySql.Infrastructure;
 
 namespace Microting.EformMonitoringBase.Infrastructure.Data.Factories
 {

@@ -36,7 +36,7 @@ namespace Microting.EformMonitoringBase.Migrations
             object appointmentAutoIdGenStrategyValue = MySqlValueGenerationStrategy.IdentityColumn;
 
             // Setup for MySQL Provider
-            if (migrationBuilder.ActiveProvider == "Pomelo.EntityFrameworkCore.MySql")
+            if (migrationBuilder.ActiveProvider == "Microting.EntityFrameworkCore.MySql")
             {
                 DbConfig.IsMySQL = true;
                 appointmentAutoIdGenStrategy = "MySql:ValueGenerationStrategy";
